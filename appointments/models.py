@@ -3,6 +3,11 @@ from doctors.models import *
 from patients.models import *
 from rooms.models import *
 
+APPOINTMENT_STATUS = (('', 'Please select one...'),
+	('Available', 'Available'), 
+	('Unavailable', 'Unavailable'), 	
+)
+
 class Appointment(models.Model):
 	app_time = models.TimeField(max_length=50, blank=False, null=False)
 	app_length = models.IntegerField(blank=False, null=False)
@@ -10,6 +15,7 @@ class Appointment(models.Model):
 	room = models.OneToOneField(Room)
 	patient = models.OneToOneField(Patient)
 	doctor = models.OneToOneField(Doctor)
+	status = models.CharField(max_length=50, blank=False, null=False)
 
 	class Meta:
 		verbose_name_plural = u'Appointment'

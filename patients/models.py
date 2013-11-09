@@ -9,7 +9,7 @@ class Patient(models.Model):
 		verbose_name_plural = u'Patient'
 
 	def __unicode__(self):
-		return u'Patient: %s' % self.user.username
+		return u'%s %s' % (self.first_name, self.last_name)
 
 	def save(self, *args, **kwargs):
 		super(Patient, self).save(*args, **kwargs)
