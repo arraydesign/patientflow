@@ -1,1 +1,1 @@
-web: gunicorn mycleancity.wsgi
+web: gunicorn patientflow.wsgi
