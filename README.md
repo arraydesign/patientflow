@@ -43,9 +43,9 @@ To install all python requirements:
 
 To update database tables:
     
-    python manage.py schemamigration users --initial
-    python manage.py schemamigration users --auto
-    python manage.py schemamigration users --help
+    python manage.py schemamigration appointments --initial
+    python manage.py schemamigration appointments --auto
+    python manage.py schemamigration appointments --help
 
     heroku run python manage.py migrate userorganization --app patientflow
 

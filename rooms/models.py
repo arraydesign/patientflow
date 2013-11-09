@@ -1,5 +1,7 @@
 from django.db import models
 
+from pods.models import *
+
 class Room(models.Model):
 	number = models.CharField(max_length=60, blank=False, verbose_name='Room Number')
 	status = models.CharField(max_length=50, blank=False, null=False, default="Unavailable")
