@@ -24,11 +24,6 @@
 
 	<fieldset>
 		<legend>Add Patient</legend>
-		{% if add_patient_form.non_field_errors %}
-              <div class="message-box error">
-              {{ add_patient_form.non_field_errors }}
-              </div>
-            {% endif %}
 		<form action="/patients/add-patient" method="post">{% csrf_token %}
 	        <table>
 	            <tr>
@@ -45,6 +40,23 @@
 	        </table>
 	        <input type="submit" value="Add Patient" />
 		</form>
+	</fieldset>
+
+	<fieldset>
+		<legend>Edit Practitioner</legend>		
+				{% for doctor in doctors %}
+				<form action="/doctors/update" method="post">
+					<input type="hidden" name="doctor_id" value="{{ doctor.id }}" />
+					<input type="hidden" name="status" value="{{ doctor.status }}" />
+					{% csrf_token %}
+					<table>
+					<tr>
+						<td>{{ doctor }}</td>
+						<td><span class="doctor-status-button">{{ doctor.status }}</span></td>
+					</tr>
+				</table>
+				</form>
+			{% endfor %}
 	</fieldset>
 
 {% endblock %}

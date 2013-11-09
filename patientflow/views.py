@@ -18,11 +18,13 @@ class ReceptionistView(TemplateView):
 	def get_context_data(self, **kwargs):
 		add_doctor_form = DoctorForm()
 		add_patient_form = PatientForm()
+		doctors = Doctor.objects.all()
 
 		context = super(ReceptionistView, self).get_context_data(**kwargs
 			)
 		context['add_doctor_form'] = add_doctor_form
-		context['add_patient_form'] = add_patient_form
+		context['add_doctor_form'] = add_doctor_form
+		context['doctors'] = doctors
 
 		return context
 

@@ -24,3 +24,23 @@ def add_doctor(request):
 		doctor.save()
 
 	return HttpResponseRedirect('/')
+
+def update(request):
+
+	if request.method == 'POST':
+
+		doctor_id = request.POST['doctor_id']
+		status = request.POST['status']
+
+		if status == "Unavailable":
+			status = "Available"
+		else:
+			status = "Unavailable"
+
+		Doctor.objects.filter(id=doctor_id).update(status=status)
+
+		return HttpResponse(status)
+
+	c.update(csrf(request))
+
+	return HttpResponseRedirect('/')
