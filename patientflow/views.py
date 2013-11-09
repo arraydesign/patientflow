@@ -10,6 +10,7 @@ from django.views.generic.edit import FormView
 
 
 class ReceptionistView(TemplateView):
+	
 	template_name = "patientflow/receptionist.html"
 
 	def get_context_data(self, **kwargs):
