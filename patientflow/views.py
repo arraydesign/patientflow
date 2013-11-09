@@ -21,12 +21,12 @@ class RoomView(TemplateView):
 	template_name = "patientflow/room.html"
 
 	def get_context_data(self, **kwargs):
-		context = super(ReceptionistView, self).get_context_data(**kwargs)
+		context = super(RoomView, self).get_context_data(**kwargs)
 		return context
 
 class WaitingRoomView(TemplateView):
 	template_name = "patientflow/waiting_room.html"
 
 	def get_context_data(self, **kwargs):
-		context = super(ReceptionistView, self).get_context_data(**kwargs)
+		context = super(WaitingRoomView, self).get_context_data(**kwargs)
 		return context
