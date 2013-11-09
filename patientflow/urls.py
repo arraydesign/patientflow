@@ -1,17 +1,28 @@
 from django.conf.urls import patterns, include, url
+from django.conf import settings
+from django.contrib import admin
+from django.views.generic import TemplateView
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from patientflow.views import *
+
+admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'patientflow.views.home', name='home'),
-    # url(r'^patientflow/', include('patientflow.foo.urls')),
+	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+	url(r'^admin/', include(admin.site.urls)),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+	url(r'^appointments/', include('appointments.urls')),
+	url(r'^doctors/', include('doctors.urls')),
+	url(r'^patients/', include('patients.urls')),
+	url(r'^pods/', include('pods.urls')),
+	url(r'^rooms/', include('rooms.urls')),
 
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+	url(r'^$', ReceptionistView.as_view()),
+	url(r'^room/', RoomView.as_view()),
+	url(r'^waiting-room/', WaitingRoomView.as_view()),
 )
+
+if settings.DEBUG:
+	urlpatterns += patterns('django.contrib.staticfiles.views',
+		url(r'^static/(?P<path>.*)$', 'serve'),
+	)
