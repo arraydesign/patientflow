@@ -34,8 +34,8 @@
 	            	<td>{{ add_patient_form.doctor.label_tag }}{{ add_patient_form.doctor }}</td>
 				</tr>
 	            <tr>
-	            	<td>{{ add_patient_form.appt_time.label_tag }}{{ add_patient_form.appt_time }}</td>
-	            	<td>{{ add_patient_form.appt_length.label_tag }}{{ add_patient_form.appt_length }}</td>
+	            	<td>{{ add_patient_form.app_time.label_tag }}{{ add_patient_form.app_time }}</td>
+	            	<td>{{ add_patient_form.app_length.label_tag }}{{ add_patient_form.app_length }}</td>
 	            </tr>
 	        </table>
 	        <input type="submit" value="Add Patient" />
@@ -43,20 +43,47 @@
 	</fieldset>
 
 	<fieldset>
-		<legend>Edit Practitioner</legend>		
-				{% for doctor in doctors %}
-				<form action="/doctors/update" method="post">
-					<input type="hidden" name="doctor_id" value="{{ doctor.id }}" />
-					<input type="hidden" name="status" value="{{ doctor.status }}" />
-					{% csrf_token %}
-					<table>
+		<legend>Patient Queue</legend>
+		{% for doctor, appointments in mega_dict.items %}
+			<form action="/doctors/update" method="post">
+				{% csrf_token %}
+				<input type="hidden" name="doctor_id" value="{{ doctor.id }}" />
+				
+			
+				<table>
 					<tr>
 						<td>{{ doctor }}</td>
-						<td><span class="doctor-status-button">{{ doctor.status }}</span></td>
+						<td><span class="doctor-status-button">{{ doctor.status }}</span><input type="hidden" name="status" value="{{ doctor.status }}" /></td>
 					</tr>
 				</table>
-				</form>
+			</form>	
+			<table>
+			{% for appointment in appointments %}
+				<tr>
+					<td style="padding: 2px 30px">
+						{{ appointment.patient }}
+					</td>
+					<td style="padding: 2px 30px">
+					{% if appointment.room.number %}
+						{{ appointment.room.number }}
+					{% else %}
+						Unassigned
+					{% endif %}
+					</td>
+					<td style="padding: 2px 30px">
+						{{ appointment.patient.arrival_time }} for
+						{{ appointment.app_time }}
+					</td>
+					<td style="padding: 2px 30px">
+						{{ appointment.app_length }} min
+					</td>
+				</tr>
 			{% endfor %}
+			</table>
+			
+		{% endfor %}
+
+		
 	</fieldset>
 
 {% endblock %}

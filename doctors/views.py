@@ -34,13 +34,13 @@ def update(request):
 
 		if status == "Unavailable":
 			status = "Available"
-		else:
+		elif status == "Available":
 			status = "Unavailable"
+
+		# return HttpResponse(u"%s %s" %(doctor_id, status))
 
 		Doctor.objects.filter(id=doctor_id).update(status=status)
 
 		return HttpResponse(status)
-
-	c.update(csrf(request))
 
 	return HttpResponseRedirect('/')

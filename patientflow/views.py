@@ -7,6 +7,7 @@ from django.template import Context
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 
+from appointments.models import *
 from doctors.models import *
 from doctors.forms import *
 from patients.models import *
@@ -20,11 +21,27 @@ class ReceptionistView(TemplateView):
 		add_patient_form = PatientForm()
 		doctors = Doctor.objects.all()
 
+		mega_dict = {}
+
+		for doctor in doctors:
+
+			appointments = Appointment.objects.filter(doctor=doctor)
+			# print doctor
+
+			# if appointments:
+			# 	for appointment in appointments:
+			# 		print u"%s %s" %(appointment.patient.first_name, appointment.patient.last_name)
+			# 	print "------"
+			mega_dict[doctor] = appointments
+
+
+
 		context = super(ReceptionistView, self).get_context_data(**kwargs
 			)
 		context['add_doctor_form'] = add_doctor_form
-		context['add_doctor_form'] = add_doctor_form
+		context['add_patient_form'] = add_patient_form
 		context['doctors'] = doctors
+		context['mega_dict'] = mega_dict
 
 		return context
 

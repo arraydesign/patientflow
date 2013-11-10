@@ -1,0 +1,83 @@
+[
+  {
+    "model": "patientflow.doctors",
+    "pk": 1,
+    "fields": {
+      "first_name": "John",
+      "last_name": "Lennon",
+      "status": "Available"
+    }
+  },
+  {
+    "model": "patientflow.doctors",
+    "pk": 2,
+    "fields": {
+      "first_name": "Keith",
+      "last_name": "Chong",
+      "status": "Available"
+    }
+  },
+  {
+    "model": "patientflow.doctors",
+    "pk": 3,
+    "fields": {
+      "first_name": "Arjun",
+      "last_name": "Sehgal",
+      "status": "Available"
+    }
+  },
+
+  {
+    "model": "patientflow.pods",
+    "pk": 1,
+    "fields": {
+      "name": "Pod 1",
+      "numrooms": 5
+    }
+  },
+  {
+    "model": "patientflow.rooms",
+    "pk": 1,
+    "fields": {
+      "number": 1,
+      "status": "Available",
+      "pod_id": 1
+    }
+  },
+  {
+    "model": "patientflow.rooms",
+    "pk": 2,
+    "fields": {
+      "number": 2,
+      "status": "Available",
+      "pod_id": 1
+    }
+  },
+  {
+    "model": "patientflow.rooms",
+    "pk": 3,
+    "fields": {
+      "number": 3,
+      "status": "Available",
+      "pod_id": 1
+    }
+  },
+  {
+    "model": "patientflow.rooms",
+    "pk": 4,
+    "fields": {
+      "number": 4,
+      "status": "Available",
+      "pod_id": 1
+    }
+  },
+  {
+    "model": "patientflow.rooms",
+    "pk": 5,
+    "fields": {
+      "number": 5,
+      "status": "Available",
+      "pod_id": 1
+    }
+  }
+]

@@ -19,8 +19,8 @@ class PatientForm(forms.Form):
 	first_name = forms.CharField(max_length=50, widget=forms.TextInput())
 	last_name = forms.CharField(max_length=50, widget=forms.TextInput())
 	doctor = forms.ModelChoiceField(queryset=Doctor.objects.all().exclude(status="Unavailable"))
-	appt_time = forms.CharField(max_length=50, widget=forms.TextInput())
-	appt_length = forms.ChoiceField(widget=forms.Select(), choices=APP_LENGTH)
+	app_time = forms.CharField(max_length=50, widget=forms.TextInput())
+	app_length = forms.ChoiceField(widget=forms.Select(), choices=APP_LENGTH)
 
 	def __init__(self, *args, **kwargs):
 		super(PatientForm, self).__init__(*args, **kwargs)

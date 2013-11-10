@@ -2,9 +2,6 @@ $(document).ready(function() {
 	$("span.doctor-status-button").on("click", updateDoctorStatus);
 }); 
 
-/*
-	Right sidebar on dashboard show
-*/
 function updateDoctorStatus(event)
 {	
 	var button = $(this);
@@ -16,10 +13,12 @@ function updateDoctorStatus(event)
         url: form.attr('action'),
         data: form.serialize(),
         success: function (data) {
+        	console.log("Success" + data);
         	button.html(data);
+        	button.next().val(data);
         },
         error: function(data) {
-        	console.log(data);
+        	console.log("Error" + data);
         }
     });
     event.preventDefault();
