@@ -46,7 +46,7 @@ $(document).ready(function() {
 }); 
 
 function autoAssign(){
-    alert("Auto running");
+    
     // console.log('asdfds');
 }
 
