@@ -4,7 +4,7 @@
 
 	<footer>
 		<div>
-			<p>&copy; <?php echo date('Y'); ?>. <span class="source-org vcard copyright">Copyright info.</span></p>
+			<p>&copy; <?php echo date('Y'); ?> <span class="source-org vcard copyright">Copyright PatientFlow</span></p>
 			<ul class="inline foot-nav">
 				<li><a href="#">FAQ</a></li>
 				<li><a href="#">Privacy Policy</a></li>

@@ -26,7 +26,7 @@
 
 .fancybox-skin {
 	position: relative;
-	background: #f9f9f9;
+	background: #FEF6E3;
 	color: #444;
 	text-shadow: none;
 	-webkit-border-radius: 4px;
@@ -39,17 +39,46 @@
 }
 
 .fancybox-opened .fancybox-skin {
-	-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-	   -moz-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-	        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+	   -moz-box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+	        box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
 }
 
 .fancybox-outer, .fancybox-inner {
-	position: relative;
+    position: relative;
 }
 
 .fancybox-inner {
-	overflow: hidden;
+    margin-top: 64px;
+    overflow: hidden;
+}
+
+.fancybox-inner form {
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+}
+
+.fancybox-inner form button,
+.fancybox-inner form .btn,
+.fancybox-inner form input[type="button"],
+.fancybox-inner form input[type="reset"],
+.fancybox-inner form input[type="submit"] {
+    background: #2e8aca;
+    color: #FEF6E3;
+    display: block;
+    height: 56px;
+    line-height: 56px;
+    margin: 24px auto 0;
+    padding: 0 24px;
+}
+
+.fancybox-inner form button:hover,
+.fancybox-inner form .btn:hover,
+.fancybox-inner form input[type="button"]:hover,
+.fancybox-inner form input[type="reset"]:hover,
+.fancybox-inner form input[type="submit"]:hover {
+    background: #236898;
 }
 
 .fancybox-type-iframe .fancybox-inner {
@@ -201,7 +230,6 @@
 
 .fancybox-title {
 	visibility: hidden;
-	font: normal 13px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 	position: relative;
 	text-shadow: none;
 	z-index: 8050;
@@ -243,7 +271,16 @@
 }
 
 .fancybox-title-inside-wrap {
-	padding-top: 10px;
+    color: #002A35;
+    font-size: 28px;
+    font-weight: 600;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    text-shadow: none;
+    text-transform: uppercase;
+    top: 30px;
+    width: 100%;
 }
 
 .fancybox-title-over-wrap {

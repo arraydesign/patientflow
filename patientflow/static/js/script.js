@@ -10,6 +10,25 @@ $(document).ready(function() {
 		$('ul#grid').toggle();
 	});
 
+/* Modals */
+
+	$('.fb-inline').fancybox({
+		autoSize: false,
+		autoHeight: true,
+		padding: 16,
+		width: 672,
+		helpers: {
+			title : {
+				type : 'inside'
+			},
+			overlay : {
+				css	: {
+					'background' : 'rgba(0,42,53,0.9)'
+				}
+			}
+		}
+	});
+
 /* Other Shit
 
 	$(".full-track").colorbox({

@@ -216,9 +216,11 @@ header form div#switch:before,
 header form div#switch label {
     background: none repeat scroll 0 0 #002028;
     color: #596E75;
+    font-size: 16px;
     height: 100%;
     left: 0;
     line-height: 30px;
+    min-width: 0;
     padding: 0;
     position: absolute;
     text-align: center;
@@ -268,12 +270,24 @@ header form div#switch input[type="checkbox"]:checked ~ label:before {
     background: #ffffff;
 }
 
+header form #add-one {
+    display: none;
+    height: 56px;
+    left: 48px;
+    line-height: 56px;
+    padding: 0;
+    position: absolute;
+    top: 8px;
+    width: 124px;
+}
+
 nav {
     left: auto;
     position: absolute;
-    right: 0;
+    right: 28px;
     top: 0;
-    width: 416px;
+    /* width: 416px; */
+    width: 352px;
 }
 
 nav ul {
@@ -284,7 +298,7 @@ nav ul {
 nav ul li {
     float: left;
     padding: 0;
-    width: 146px;
+    width: 146px; 
 }
 
 nav ul li a {
@@ -300,6 +314,7 @@ nav ul li a {
     padding: 0;
     text-decoration: none;
     text-transform: uppercase;
+    transition: background 200ms ease-in-out 0s;
 }
 
 nav ul li#add-practitioner-btn {
@@ -307,19 +322,37 @@ nav ul li#add-practitioner-btn {
 }
 
 nav ul li a:hover {
-    background: white;
+    background: #ffffff;
+    color: #002A35;
 }
 
 nav ul li:last-child {}
 
 nav ul li#collapse-btn {
+    display: none;
     width: 64px;
 }
 
 nav ul li#collapse-btn a {
-    background: transparent;
+    background-color: transparent;
+    background-image: url("assets/BTN-collapse.png");
+    background-position: left top;
+    background-repeat: no-repeat;
     height: 72px;
     margin: 0;
+    transition: none;
+}
+
+nav ul li#collapse-btn a:hover {
+    background-position: right top;
+}
+
+header.collapsed nav ul li#collapse-btn a {
+    background-position: left bottom;
+}
+
+header.collapsed nav ul li#collapse-btn a:hover {
+    background-position: right bottom;
 }
 
 
@@ -330,7 +363,7 @@ nav ul li#collapse-btn a {
     border-top: 1px solid #FFFFFF;
     display: block;
     margin: 0 0 48px;
-    padding-bottom: 16px;
+    padding-bottom: 32px;
     padding-top: 8px;
 }
 
@@ -456,6 +489,7 @@ canvas.alignright {
     background: none repeat scroll 0 0 #EFE7D4;
     border-top: 2px solid #B3AD9F;
     color: #002A35;
+    cursor: pointer;
     font-size: 20px;
     font-weight: 700;
     padding-bottom: 11px;
@@ -463,8 +497,14 @@ canvas.alignright {
     padding-top: 10px;
 }
 
+.practitioner .practitioner-name:hover {
+    background: #002A35;
+    border-top: 2px solid #002A35;
+    color: #FEF6E3;
+}
+
 .practitioner .practitioner-name:after {
-    background: none repeat scroll 0 0 #93A1A1;
+    background: none repeat scroll 0 0 #B3AD9F;
     border-radius: 4px 4px 4px 4px;
     color: #EFE7D4;
     content: "";
@@ -475,6 +515,7 @@ canvas.alignright {
     margin-right: 12px;
     padding: 2px 6px 4px;
     text-transform: uppercase;
+    text-decoration: none;
 }
 
 .practitioner.working .practitioner-name:after {
@@ -489,6 +530,8 @@ canvas.alignright {
     content: "Went Home";
 }
 
+.practitioner .patients {}
+
 .practitioner .patient {
     border-top: 1px solid #EFE7D4;
     color: #596E75;
@@ -499,6 +542,33 @@ canvas.alignright {
     line-height: 16px;
     padding-left: 16px;
     padding-top: 10px;
+    position: relative;
+}
+
+#manual .practitioner .patient {
+    cursor: pointer;
+}
+
+#manual .practitioner .patient:hover {
+	background: rgba(255,255,255,0.5)
+}
+
+#manual .practitioner .patient:hover .name:after {
+    background: url(assets/BTN-patient_drag.gif) no-repeat scroll 8px 7px rgba(255,255,255,0.5);
+    border-bottom: 1px solid #B3AD9F;
+    border-left: 1px solid #B3AD9F;
+    border-radius: 12px 0 0 12px;
+    border-top: 1px solid #B3AD9F;
+    content: "";
+    height: 22px;
+    left: -16px;
+    position: absolute;
+    top: 8px;
+    width: 22px;
+}
+
+#manual .practitioner .patient:active .name:after {
+    top: 9px;
 }
 
 .patient .name,
@@ -521,15 +591,17 @@ canvas.alignright {
 }
 
 .patient .room-number {
+    font-weight: 600;
     width: 5%;
 }
 
-.patient .appt-start {
+.patient .appt-start,
+.patient .arrived {
+    text-align: center;
     width: 12.5%;
 }
 
 .patient .arrived {
-    text-align: center;
     width: 14.5%;
 }
 
@@ -548,7 +620,9 @@ canvas.alignright {
 
 footer {
     background: none repeat scroll 0 0 #EFE7D4;
-    font-size: 0.75em;
+    color: #78746A;
+    font-size: 12px;
+    line-height: 16px;
     height: 48px;
     margin: -48px auto 0;
     padding: 0;
@@ -566,7 +640,9 @@ footer:after {
 }
 
 footer div {
-    margin: 0 2.5%;
+    margin: 0 32px;
+    position: relative;
+    top: 7px;
 }
 
 footer ul {
@@ -592,7 +668,10 @@ footer ul li a {
 }
 
 footer p {
-    float:right;
+    color: #78746A;
+    float: right;
+    padding-bottom: 8px;
+    padding-top: 8px;
 }
 	
 /* MEDIUM

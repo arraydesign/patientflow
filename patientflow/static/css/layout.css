@@ -65,7 +65,7 @@
     margin-bottom: 1px;
     margin-right: 6.06061%;
     margin-left: 3.0303%;
-    overflow: hidden;
+    overflow: visible;
 }
 
 #receptionist .practitioner .practitioner-name {}

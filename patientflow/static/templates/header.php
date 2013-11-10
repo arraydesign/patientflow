@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en" class="wf-inactive">
 <head>
-	<style type="text/css" media="screen">html.wf-inactive h1, html.wf-inactive h2, html.wf-inactive h3, html.wf-inactive h4, html.wf-inactive p, html.wf-inactive li, html.wf-inactive a, html.wf-inactive span, html.wf-inactive label, html.wf-inactive td, html.wf-inactive th, html.wf-inactive input, html.wf-inactive select, html.wf-inactive textarea, html.wf-inactive small, html.wf-loading h1, html.wf-loading h2, html.wf-loading h3, html.wf-loading h4, html.wf-loading p, html.wf-loading li, html.wf-loading a, html.wf-loading span, html.wf-loading label, html.wf-loading td, html.wf-loading th, html.wf-loading input, html.wf-loading select, html.wf-loading textarea, html.wf-loading small {visibility: hidden;}</style>
+	<style type="text/css" media="screen">html.wf-inactive h1, html.wf-inactive h2, html.wf-inactive h3, html.wf-inactive h4, html.wf-inactive p, html.wf-inactive li, html.wf-inactive a, html.wf-inactive span, html.wf-inactive label, html.wf-inactive td, html.wf-inactive th, html.wf-inactive fieldset, html.wf-inactive label, html.wf-inactive input, html.wf-inactive select, html.wf-inactive textarea, html.wf-inactive small, html.wf-loading h1, html.wf-loading h2, html.wf-loading h3, html.wf-loading h4, html.wf-loading p, html.wf-loading li, html.wf-loading a, html.wf-loading span, html.wf-loading label, html.wf-loading td, html.wf-loading th, html.wf-loading fieldset, html.wf-loading label, html.wf-loading input, html.wf-loading select, html.wf-loading textarea, html.wf-loading small {visibility: hidden;}</style>
 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 	<title><?php if ($meta_title) { echo $meta_title; } else { echo 'Patient Flow'; } ?></title>
 
@@ -27,11 +27,11 @@
 
 		<header>
 			<h1>Patient<strong>Flow</strong></h1>
-			<form action="" method="get" id="auto-manual" accept-charset="utf-8"><fieldset><div id="switch"><input type="checkbox" value="auto" class="checkbox" checked="checked" /><label>Auto</label></div><div style="display:none"><button id="add-one"><span>Add One</span></button></div></fieldset></form>
+			<form action="" method="get" id="auto-manual" accept-charset="utf-8"><fieldset><div id="switch"><input type="checkbox" value="auto" class="checkbox" checked="checked" /><label>Auto</label></div><button id="add-one">Add One</button></fieldset></form>
 			<nav>
 				<ul class="inline">
-					<li id="add-patient-btn"><a href="#add-patient">Add Patient</a></li>
-					<li id="add-practitioner-btn"><a href="#add-practitioner">Add Practitioner</a></li>
+					<li id="add-patient-btn"><a href="#add-patient" class="fb-inline" title="Add Patient">Add Patient</a></li>
+					<li id="add-practitioner-btn"><a href="#add-practitioner" class="fb-inline" title="Add Practitioner">Add Practitioner</a></li>
 					<li id="collapse-btn"><a href="#" class="img-txt">Hide Buttons</a></li>
 				</ul>
 			</nav>

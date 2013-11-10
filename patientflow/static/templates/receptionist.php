@@ -3,6 +3,68 @@ $basepage = 'receptionist';
 $baseclass = 'receptionist-view';
 include('header.php'); ?>
 	
+<!-- - - - - - - - - - MODALS - - - - - - - - - -->
+
+<div id="add-practitioner" style="display: none;">
+	<form method="post" action="/doctors/add-doctor"><input type="hidden" value="olAC4uC0RgSWs7wRgnWgReZDHOHgRqKj" name="csrfmiddlewaretoken">
+        <div class="fieldrow text-row">
+			<label for="id_first_name">First name:</label>
+			<input type="text" name="first_name" maxlength="50" id="id_first_name">
+		</div>
+		<div class="fieldrow text-row">
+			<label for="id_last_name">Last name:</label>
+			<input type="text" name="last_name" maxlength="50" id="id_last_name">
+		</div>
+		<div class="fieldrow text-row">
+			<label for="id_speciality">Speciality:</label>
+			<input type="text" name="speciality" maxlength="50" id="id_speciality">
+		</div>
+		<div class="fieldrow select-row">
+			<label for="id_status">Status:</label>
+			<select name="status" id="id_status">
+				<option selected="selected" value="">- - select one - -</option>
+				<option value="Available">Available</option>
+				<option value="Unavailable">Unavailable</option>
+			</select>
+		</div>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+<div id="add-patient" style="display: none;">
+	<form method="post" action="/patients/add-patient"><input type="hidden" value="olAC4uC0RgSWs7wRgnWgReZDHOHgRqKj" name="csrfmiddlewaretoken">
+		<div class="fieldrow text-row">
+			<label for="id_first_name">First name:</label>
+			<input type="text" name="first_name" maxlength="50" id="id_first_name">
+		</div>
+		<div class="fieldrow text-row">
+			<label for="id_last_name">Last name:</label>
+			<input type="text" name="last_name" maxlength="50" id="id_last_name">
+		</div>
+		<div class="fieldrow select-row">
+			<label for="id_doctor">Practitioner:</label>
+			<select name="doctor" id="id_doctor">
+				<option selected="selected" value="">- - select one - -</option>
+				<option value="4">Dr. Keith Chung</option>
+			</select>
+		</div>
+		<div class="fieldrow text-row">
+			<label for="id_app_time">App time:</label>
+			<input type="text" name="app_time" maxlength="50" id="id_app_time">
+		</div>
+		<div class="fieldrow select-row">
+			<label for="id_app_length">App length:</label><select name="app_length" id="id_app_length">
+				<option selected="selected" value="">- - select one - -</option>
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="15">15</option>
+				<option value="20">20</option>
+				<option value="25">25</option>
+				<option value="30">30</option>
+			</select>
+		</div>
+        <input type="submit" value="Submit">
+	</form>
+</div>
 
 <!-- - - - - - - - - - CONTENT STARTS - - - - - - - - - -->
 
@@ -81,7 +143,7 @@ include('header.php'); ?>
 				<li class="patient" id="patient-id-0000000">
 					<span class="name">Firstname Lastname</span>
 					<span class="practitioner-name">Dr. Keith Chung</span>
-					<span class="room-number">- - -</span>
+					<span class="room-number">301</span>
 					<span class="appt-start">11:30am</span>
 					<span class="arrived">(11:25am)</span>
 					<span class="appt-length">11 / 20</span>
