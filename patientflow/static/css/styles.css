@@ -9,12 +9,10 @@ ul#grid li:first-child{margin-left:32px}
 ul#grid li:nth-child(n+9){display:none}
 
 
-/* MEDIUM
+/* ROOM
 -------------------------------------------------------------- */
 
-@media screen and (max-width: 800px) {
-ul#grid{background-color:gray;width:768px;}
-ul#grid li{margin-left:16px;margin-right:16px;width:152px}
-ul#grid li:first-child{margin-left:32px}
-ul#grid li:nth-child(n+5){display:none}
-}
+body.room ul#grid{background-color:gray;width:768px;}
+body.room ul#grid li{margin-left:16px;margin-right:16px;width:152px}
+body.room ul#grid li:first-child{margin-left:32px}
+body.room ul#grid li:nth-child(n+5){display:none}
