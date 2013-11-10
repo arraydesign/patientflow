@@ -25,7 +25,7 @@ class ReceptionistView(TemplateView):
 
 		for doctor in doctors:
 
-			appointments = Appointment.objects.filter(doctor=doctor)
+			appointments = Appointment.objects.filter(doctor=doctor).order_by('order')
 
 			mega_dict[doctor] = appointments
 
@@ -43,6 +43,45 @@ class RoomView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(RoomView, self).get_context_data(**kwargs)
+
+		if 'rid' in self.kwargs:		
+			rid = self.kwargs['rid']
+			room = get_object_or_404(Room, id=rid)
+			try:
+				appointment = Appointment.objects.get(room=room)
+		
+				doctor = appointment.doctor
+				appointments = Appointment.objects.filter(doctor=doctor).order_by('order')
+			
+				if appointment.room.status == "Waiting":
+					button_title = 'The Doctor Has Arrived'
+				
+				elif appointment.room.status == "Cleaning":
+					button_title = 'Cleaning Complete'
+				
+				elif appointment.room.status == "Occupied":
+					button_title = 'Cleaning Required'
+
+				elif appointment.room.status == "Available":
+					button_title = 'Hide Me'
+				
+				elif appointment.room.status == "Unavailable":
+					button_title = 'Cleaning Required'
+
+			except Exception, e:
+				print e
+				appointment = None
+				appointments = None
+				button_title = None
+				doctor = None
+
+
+			context['button_title'] = button_title
+			context['doctor'] = doctor
+			context['appointment'] = appointment
+			context['appointments'] = appointments
+			context['room'] = room
+
 		return context
 
 class WaitingRoomView(TemplateView):

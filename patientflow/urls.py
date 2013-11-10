@@ -18,6 +18,7 @@ urlpatterns = patterns('',
 	url(r'^rooms/', include('rooms.urls')),
 
 	url(r'^$', ReceptionistView.as_view()),
+	url(r'^room/(?P<rid>\d+)/?$', RoomView.as_view()),
 	url(r'^room/', RoomView.as_view()),
 	url(r'^waiting-room/', WaitingRoomView.as_view()),
 )

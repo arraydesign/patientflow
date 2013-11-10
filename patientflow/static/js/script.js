@@ -1,12 +1,37 @@
 $(document).ready(function() { 
 	$("span.doctor-status-button").on("click", updateDoctorStatus);
     $("#assign-next-patient").on("click", assignNextPatient);
+    // $("#room-action").on("click", roomAction);
 }); 
 
 window.setInterval(autoAssign, 3000);
 
 function autoAssign(){
     // console.log('asdfds');
+}
+
+function roomAction(event)
+{
+    var button = $(this);
+    var form = $(this).closest("form");
+
+    console.log(form.attr('method'));
+
+    $.ajax({
+        type: form.attr('method'),
+        url: form.attr('action'),
+        data: form.serialize(),
+        success: function (data) {
+            console.log("Success - " + data);
+            button.val(data);
+        },
+        error: function(data) {
+            console.log("Error - " + data);
+        }
+    });
+    event.preventDefault();
+
+    return false;
 }
 
 function updateDoctorStatus(event)

@@ -5,9 +5,71 @@
 {% block css %}{% endblock %}
 
 {% block content %}
-<!--
-	HTML for page
--->
+<h1>Room: {{ room.number }}</h1>
+<h1>Doctor: 
+	{% if appointment.doctor %}
+		{{ appointment.doctor }}
+	{% else %}
+		Not Assigned
+	{% endif %}
+</h1>
+<h1>Patient: 
+	{% if appointment.patient %}
+		{{ appointment.patient }}
+	{% else %}
+		Not Assigned
+	{% endif %}
+</h1>
+
+<form action="/rooms/action" method="post">
+	{% csrf_token %}
+	<input type="hidden" name="app_id" value="{{ appointment.id }}" />
+	{% if button_title != "Hide Me" %}
+		<input id="room-action" type="submit" value="{{ button_title }}" />
+	{% endif %}
+</form>
+
+
+<fieldset>
+	<legend>Patient Queue</legend>
+	
+		<form action="/doctors/update" method="post">
+			{% csrf_token %}
+			<input type="hidden" name="doctor_id" value="{{ doctor.id }}" />
+		
+			<table>
+				<tr>
+					<td>{{ doctor }}</td>
+					<td><span class="doctor-status-button">{{ doctor.status }}</span><input type="hidden" name="status" value="{{ doctor.status }}" /></td>
+				</tr>
+			</table>
+		</form>	
+		<table>
+		<table>
+		{% for app in appointments %}
+			<tr>
+				<td style="padding: 2px 30px">
+					{{ app.patient }}
+				</td>
+				<td style="padding: 2px 30px">
+				{% if app.room.number %}
+					{{ app.room.number }}
+				{% else %}
+					Unassigned
+				{% endif %}
+				</td>
+				<td style="padding: 2px 30px">
+					{{ app.patient.arrival_time }} for
+					{{ app.app_time }}
+				</td>
+				<td style="padding: 2px 30px">
+					{{ app.app_length }} min
+				</td>
+			</tr>
+		{% endfor %}
+		</table>
+</fieldset>
+
 {% endblock %}
 
 {% block javascript %}{% endblock %}
