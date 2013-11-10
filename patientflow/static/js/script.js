@@ -1,6 +1,17 @@
 var keyword_field = $('#keyword');
 
-$(document).ready(function() { 
+$(document).ready(function() {
+
+	$('html').addClass('js-active');
+
+/* Grid */
+	  	
+	$(document).jkey('control+g', function() {
+		$('ul#grid').toggle();
+	});
+
+/* Other Shit
+
 	$(".full-track").colorbox({
 		inline: true, 
 		width: "50%",
@@ -8,7 +19,6 @@ $(document).ready(function() {
 		scrolling: true
     });
 
-    
 	$(".popup-400").colorbox({
     	width: "400px",
 		inline: true, 
@@ -19,7 +29,7 @@ $(document).ready(function() {
     	width: "700px",
 		inline: true, 
 		scrolling: true
-    });
+    }); */
 
     $(".dropdown-menu li a").click(function(){
       $(".btn:first-child").text($(this).text());

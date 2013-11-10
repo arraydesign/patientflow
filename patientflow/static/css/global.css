@@ -1,0 +1,606 @@
+/* Classes
+-------------------------------------------------------------- */
+
+ul.inline {
+    list-style-type:none;
+    padding-left:0;
+}
+
+ul.inline li {
+    display:inline;
+    float:left;
+    padding:0;
+}
+
+dl.section-list dt {
+    float: left;
+    line-height: 2.25em;
+    margin-left: 1.75em;
+    padding: 0;
+    top: 1px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	dl.section-list dt {
+    line-height: 1.875em;
+	}
+}
+
+dl.section-list dt a {
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+}
+
+dl.section-list dt a:hover, dl.section-list dt.selected a {
+    color: #655049;
+}
+
+dl.section-list dt.selected a {
+    border-bottom: 3px solid;
+    padding-bottom: 4px;
+    z-index: 1;
+}
+
+dl.section-list dd {
+    border-top: 1px solid #D9D3D1;
+    clear: left;
+    padding-top: 0.5em;
+    padding-left: 1.75em;
+    margin-bottom: 1.125em;
+}
+
+dl.section-list dd.selected {
+    display: block;
+}
+
+.alignleft {
+    float:left;
+}
+
+.alignright {
+    float:right;
+}
+
+.aligncenter {
+    float:none;
+    margin: 0 auto;
+}
+
+.alignnone {
+    float:none;
+}
+
+.clear-both {
+    clear: both
+}
+
+.clear-left {
+    clear: left
+}
+
+.clear-right {
+    clear: right
+}
+
+.img-txt {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1em;
+    line-height: 1em;
+    outline: none;
+}
+
+.more-link {
+    font-size: 0.75em;
+    font-weight: bold;
+    line-height: 1.16em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.hide {
+    display: none;
+}
+
+
+/* GLOBAL GENERAL
+-------------------------------------------------------------- */
+
+body {
+    background: none repeat scroll 0 0 #FEF6E3;
+    overflow-x: hidden;
+    position: relative;
+    text-align: left;
+}
+
+.wrapper, footer {
+    overflow: visible;
+    position: relative;
+    width: 1056px;
+}
+
+.wrapper {
+    margin: 0 auto;
+    min-height: 100%;
+}
+
+.wrapper:before, .wrapper:after,
+footer:before, footer:after {
+    background: #002A35;
+    content: "";
+    height: 72px;
+    left: -528px;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    z-index: 1;
+}
+
+.wrapper:after {
+    left: 1054px;
+}
+
+
+/* HEADER
+-------------------------------------------------------------- */
+
+header {
+    background: none repeat scroll 0 0 #002A35;
+    display: block;
+    height: 72px;
+    margin-bottom: -1px;
+}
+
+header h1 {
+    color: #93A1A1;
+    font-size: 42px;
+    font-style: italic;
+    font-weight: 300;
+    left: 32px;
+    top: 9px;
+    width: 256px;
+}
+
+header form {
+    left: 288px;
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 352px;
+}
+
+header form fieldset {
+    height: 72px;
+    margin: 0;
+    padding: 0;
+}
+
+header form div#switch {
+    border: 1px solid #000000;
+    border-radius: 4px 4px 4px 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+    height: 30px;
+    left: 188px;
+    overflow: hidden;
+    position: relative;
+    top: 20px;
+    width: 100px;
+}
+
+header form div#switch input {
+    border: medium none !important;
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    line-height: normal;
+    margin: 0 !important;
+    opacity: 0;
+    outline: 0 none !important;
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 5000;
+}
+
+header form div#switch:before {
+    content: "Manual";
+}
+
+header form div#switch:before,
+header form div#switch label {
+    background: none repeat scroll 0 0 #002028;
+    color: #596E75;
+    height: 100%;
+    left: 0;
+    line-height: 30px;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    text-indent: 25%;
+    text-transform: uppercase;
+    top: 0;
+    width: 100%;
+    z-index: 400;
+}
+
+header form div#switch label {
+    background: #2e8aca;
+    border-radius: 0 4px 4px 0;
+    color: #999999;
+    float: none;
+    left: -80%;
+    transition: left 200ms ease-in-out 0s;
+    z-index: 500;
+    margin: 0;
+}
+
+header form div#switch label:before {
+    background: none repeat scroll 0 0 #677B82;
+    border-radius: 3px 3px 3px 3px;
+    color: #002A35;
+    content: "Auto";
+    font-style: normal;
+	font-weight: 500;
+    height: 100%;
+    left: 20%;
+    position: absolute;
+    text-indent: 0;
+    top: 0;
+    transition: background 200ms ease-in-out 0s;
+    width: 80%;
+}
+
+header form div#switch:hover label:before {
+    background: #ffffff;
+}
+
+header form div#switch input[type="checkbox"]:checked ~ label {
+    left: 0;
+}
+
+header form div#switch input[type="checkbox"]:checked ~ label:before {
+    background: #ffffff;
+}
+
+nav {
+    left: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 416px;
+}
+
+nav ul {
+    margin: 0 auto;
+    text-align: center;
+}
+
+nav ul li {
+    float: left;
+    padding: 0;
+    width: 146px;
+}
+
+nav ul li a {
+    background: none repeat scroll 0 0 #677B82;
+    border-radius: 4px 4px 4px 4px;
+    color: #002A35;
+    display: block;
+    font-size: 20px;
+    font-weight: 300;
+    height: 56px;
+    line-height: 56px;
+    margin: 8px 4px;
+    padding: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav ul li#add-practitioner-btn {
+    width: 206px;
+}
+
+nav ul li a:hover {
+    background: white;
+}
+
+nav ul li:last-child {}
+
+nav ul li#collapse-btn {
+    width: 64px;
+}
+
+nav ul li#collapse-btn a {
+    background: transparent;
+    height: 72px;
+    margin: 0;
+}
+
+
+/* CONTENT
+-------------------------------------------------------------- */
+
+.content {
+    border-top: 1px solid #FFFFFF;
+    display: block;
+    margin: 0 0 48px;
+    padding-bottom: 16px;
+    padding-top: 8px;
+}
+
+.main {
+    float: left;
+    margin-left: 1.25%;
+    padding-bottom: 2em;
+    width: 73.125%;
+}
+
+.main.full {
+    margin-right: 1.25%;
+    width: 97.5%;
+}
+
+section, .genbox {
+    float:left;
+}
+
+.col-full {
+    clear:left;
+    float: none;
+    display:block;
+}
+
+.col-half {
+    width: 50%;
+}
+
+
+/* CONTENT: Images & Gallery
+-------------------------------------------------------------- */
+
+p > img.alignleft,
+iframe.alignleft,
+embed.alignleft,
+video.alignleft,
+canvas.alignleft {
+    margin-right: 3.5%;
+}
+
+p > img.alignright,
+iframe.alignright,
+embed.alignright,
+video.alignright,
+canvas.alignright {
+    margin-left: 3.5%;
+}
+
+.gallery-item {
+    margin-right: 1%;
+    margin-top: 1%;
+    padding: 1px;
+}
+
+.gallery-icon, .thumbnail {
+    border: 3px solid #FFFFFF;
+    display: block;
+    height: 100px;
+    outline: 1px solid gray;
+    width: 100px;
+}
+
+.gallery-item > img,
+.thumbnail > img,
+.img-centre > img,
+.img-centre-w > img,
+.img-centre-h > img {
+    display: block;
+    left: 50%;
+    margin: 0;
+    max-width: 150%;
+    top: 50%;
+}
+
+.img-centre-w > img {
+    top: auto;
+}
+
+.img-centre-h > img {
+    left: auto;
+}
+
+.img-centre > img,
+.img-centre-w > img,
+.img-centre-h > img {
+}
+
+
+/* CONTENT: Room
+-------------------------------------------------------------- */
+
+.room, .room.gray {
+    background-color: #93a1a1;
+    box-shadow: 0 1px 0 #4a5151;
+}
+
+.room, .room.blue {
+    background-color: #2e8aca;
+    box-shadow: 0 1px 0 #174565;
+}
+
+.room, .room.red {
+    background-color: #cc4c27;
+    box-shadow: 0 1px 0 #662614;
+}
+
+.room, .room.green {
+    background-color: #859a3b;
+    box-shadow: 0 1px 0 #434d1e;
+}
+
+.room, .room.yellow {
+    background-color: #fdba63;
+    box-shadow: 0 1px 0 #7f5d32;
+}
+
+
+/* CONTENT: Patient
+-------------------------------------------------------------- */
+
+.practitioner .practitioner-name {
+    background: none repeat scroll 0 0 #EFE7D4;
+    border-top: 2px solid #B3AD9F;
+    color: #002A35;
+    font-size: 20px;
+    font-weight: 700;
+    padding-bottom: 11px;
+    padding-left: 16px;
+    padding-top: 10px;
+}
+
+.practitioner .practitioner-name:after {
+    background: none repeat scroll 0 0 #93A1A1;
+    border-radius: 4px 4px 4px 4px;
+    color: #EFE7D4;
+    content: "";
+    float: right;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-right: 12px;
+    padding: 2px 6px 4px;
+    text-transform: uppercase;
+}
+
+.practitioner.working .practitioner-name:after {
+    content: "Working";
+}
+
+.practitioner.unavailable .practitioner-name:after {
+    content: "On Break";
+}
+
+.practitioner.done .practitioner-name:after {
+    content: "Went Home";
+}
+
+.practitioner .patient {
+    border-top: 1px solid #EFE7D4;
+    color: #596E75;
+    display: block;
+    float: none;
+    font-size: 13px;
+    height: 29px;
+    line-height: 16px;
+    padding-left: 16px;
+    padding-top: 10px;
+}
+
+.patient .name,
+.patient .room-number,
+.patient .arrived,
+.patient .appt-start,
+.patient .appt-length,
+.patient .waiting-time {
+    display: inline-block;
+}
+
+.patient .name {
+    color: #0A3541;
+    font-size: 16px;
+    width: 52%;
+}
+
+.patient .practitioner-name {
+    display: none;
+}
+
+.patient .room-number {
+    width: 5%;
+}
+
+.patient .appt-start {
+    width: 12.5%;
+}
+
+.patient .arrived {
+    text-align: center;
+    width: 14.5%;
+}
+
+.patient .appt-length,
+.patient .waiting-time {
+    text-align: right;
+    width: 10%;
+}
+.patient .waiting-time {
+	display: none;
+}
+
+
+/* FOOTER
+-------------------------------------------------------------- */
+
+footer {
+    background: none repeat scroll 0 0 #EFE7D4;
+    font-size: 0.75em;
+    height: 48px;
+    margin: -48px auto 0;
+    padding: 0;
+}
+
+footer:before, footer:after {
+    background: #EFE7D4;
+    height: 48px;
+    top: auto;
+    bottom: 0;
+}
+
+footer:after {
+    left: 1054px;
+}
+
+footer div {
+    margin: 0 2.5%;
+}
+
+footer ul {
+    display: block;
+    margin-left: 0;
+    padding-top: 0.66666667em;
+}
+
+footer ul li {
+    margin-right: 0.66666667em;
+}
+
+footer ul li:after {
+    content: "|";
+}
+
+footer ul li:last-child:after {
+    content: none;
+}
+
+footer ul li a {
+    padding-right: 0.66666667em;
+}
+
+footer p {
+    float:right;
+}
+	
+/* MEDIUM
+-------------------------------------------------------------- */
+
+@media screen and (max-width: 800px) {
+.wrapper, footer {
+    width: 768px;
+}
+}
+
