@@ -22,7 +22,7 @@ class ReceptionistView(TemplateView):
 		add_doctor_form = DoctorForm()
 		add_patient_form = PatientForm()
 		doctors = Doctor.objects.all()
-		appts = Appointment.objects.filter(~Q(status="Completed"))
+		appts = Appointment.objects.filter(~Q(status="Completed"), ~Q(room__isnull=True) )
 
 		mega_dict = {}
 

@@ -54,7 +54,7 @@
 	<div class="content">
 		
 		<section class="col-half" id="rooms">
-			
+
 			{% for appt in appts %}
 			<div class="room {% if appt.room.status == 'Waiting' %}blue{% endif %}
 			{% if appt.room.status == 'Available' %}green{% endif %}
@@ -76,6 +76,10 @@
 		</section>
 		
 		<section class="genbox col-half" id="practitioners">
+			<form action="/patients/assign-next-patient" method="post">
+				{% csrf_token %}
+				<input style="float: right; margin-right: 32px; margin-bottom: 20px;" type="submit" value="Assign Patient Room">
+			</form>
 			{% for doctor, appointments in mega_dict.items %}
 			<form method="post" class="practitioner available" action="/doctors/update">
 				{% csrf_token %}
