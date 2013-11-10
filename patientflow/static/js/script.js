@@ -1,11 +1,17 @@
 $(document).ready(function() { 
 	$("span.doctor-status-button").on("click", updateDoctorStatus);
+    $("#assign-next-patient").on("click", assignNextPatient);
 }); 
+
+window.setInterval(autoAssign, 3000);
+
+function autoAssign(){
+    // console.log('asdfds');
+}
 
 function updateDoctorStatus(event)
 {	
 	var button = $(this);
-	console.log(button.attr("class"));
 	var form = $(this).closest("form");
 
     $.ajax({
@@ -19,6 +25,31 @@ function updateDoctorStatus(event)
         },
         error: function(data) {
         	console.log("Error" + data);
+        }
+    });
+    event.preventDefault();
+
+    return false;
+}
+
+function assignNextPatient(event)
+{
+    var button = $(this);
+    var form = $(this).closest("form");
+
+    $.ajax({
+        type: form.attr('method'),
+        url: form.attr('action'),
+        data: form.serialize(),
+        success: function (data) {
+            if (data == "No rooms available"){
+                alert("No rooms available");
+            }
+    
+            console.log("Success" + data);
+        },
+        error: function(data) {
+            console.log("Error" + data);
         }
     });
     event.preventDefault();

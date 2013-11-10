@@ -26,15 +26,8 @@ class ReceptionistView(TemplateView):
 		for doctor in doctors:
 
 			appointments = Appointment.objects.filter(doctor=doctor)
-			# print doctor
 
-			# if appointments:
-			# 	for appointment in appointments:
-			# 		print u"%s %s" %(appointment.patient.first_name, appointment.patient.last_name)
-			# 	print "------"
 			mega_dict[doctor] = appointments
-
-
 
 		context = super(ReceptionistView, self).get_context_data(**kwargs
 			)

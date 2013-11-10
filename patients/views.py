@@ -6,6 +6,7 @@ from django.shortcuts import render
 from appointments.models import *
 from patients.models import *
 from patients.forms import *
+from rooms.models import *
 
 def add_patient(request):
 	if request.method == 'POST':
@@ -29,6 +30,18 @@ def add_patient(request):
 		appointment.app_length = app_length
 		appointment.patient = patient
 		appointment.doctor = doctor
+		appointment.status = "WaitingRoom"
+		appointment.order = appointment.calculate_order()
 		appointment.save()
 
+		# appointment.calculate_order()
+
 	return HttpResponseRedirect('/')
+
+def assign_next_patient(request):
+	appointment = Appointment()
+	
+	if appointment.assign_next_patient():
+		return HttpResponseRedirect('/')
+
+	return HttpResponse('No rooms available')
