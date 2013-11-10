@@ -5,9 +5,13 @@
 {% block css %}{% endblock %}
 
 {% block content %}
-<!--
-	HTML for page
--->
+	<ul>
+	{% for appt in appts %}
+		
+		<li>{{ appt.patient }} please proceed to {{ appt.room.number }}</li>
+		
+	{% endfor %}
+	</ul>
 {% endblock %}
 
 {% block javascript %}{% endblock %}

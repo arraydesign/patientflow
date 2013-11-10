@@ -81,7 +81,6 @@ class RoomView(TemplateView):
 				button_title = None
 				doctor = None
 
-
 			context['button_title'] = button_title
 			context['doctor'] = doctor
 			context['appointment'] = appointment
@@ -95,4 +94,8 @@ class WaitingRoomView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(WaitingRoomView, self).get_context_data(**kwargs)
+		
+		appts = Appointment.objects.filter(~Q(status="Completed"), ~Q(room__isnull=True) )
+		context['appts'] = appts
+
 		return context

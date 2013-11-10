@@ -1,5 +1,10 @@
+var interval;
+
 $(document).ready(function() { 
-	$("span.doctor-status-button").on("click", updateDoctorStatus);
+    // This DOES NOT work
+    $(".practitioner").on("click", updateDoctorStatus);
+	// $("span.doctor-status-button").on("click", updateDoctorStatus);
+
     $("#assign-next-patient").on("click", assignNextPatient);
     // $("#room-action").on("click", roomAction);
 
@@ -9,6 +14,24 @@ $(document).ready(function() {
     $(document).jkey('control+g', function() {
         $('ul#grid').toggle();
     });
+
+    /* Auto Assign */
+    $("#switch").on("change", function(){
+        
+        var checkbox = $(this + ":first-child");
+    
+        if (checkbox.attr("checked"))
+        {
+            checkbox.removeAttr('checked');
+            clearInterval(interval);
+        }    
+        else
+        {
+            checkbox.attr('checked', 'checked'); 
+            interval = setInterval(function(){autoAssign()}, 3000);
+        }
+    });
+
 
     /* Modals */
     $('.fb-inline').fancybox({
@@ -29,9 +52,8 @@ $(document).ready(function() {
     });
 }); 
 
-window.setInterval(autoAssign, 3000);
-
 function autoAssign(){
+    alert("Auto running");
     // console.log('asdfds');
 }
 
@@ -61,8 +83,9 @@ function roomAction(event)
 
 function updateDoctorStatus(event)
 {	
-	var button = $(this);
-	var form = $(this).closest("form");
+	var form = $(this);
+    var hidden_field = form.find("input[name='status']")
+	// var form = $(this).closest("form");
 
     $.ajax({
         type: form.attr('method'),
@@ -70,8 +93,9 @@ function updateDoctorStatus(event)
         data: form.serialize(),
         success: function (data) {
         	console.log("Success" + data);
-        	button.html(data);
-        	button.next().val(data);
+            // form.find(".practitioner-name").r
+        	// button.html(data);
+        	// button.next().val(data);
         },
         error: function(data) {
         	console.log("Error" + data);

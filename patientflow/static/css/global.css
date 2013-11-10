@@ -518,17 +518,21 @@ canvas.alignright {
     text-decoration: none;
 }
 
-.practitioner.working .practitioner-name:after {
+/*.practitioner.working .practitioner-name:after {
     content: "Working";
-}
+}*/
 
 .practitioner.unavailable .practitioner-name:after {
-    content: "On Break";
+    content: "Unavailable";
 }
 
+.practitioner.available .practitioner-name:after {
+    content: "Available";
+}
+/*
 .practitioner.done .practitioner-name:after {
     content: "Went Home";
-}
+}*/
 
 .practitioner .patients {}
 

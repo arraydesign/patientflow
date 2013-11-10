@@ -76,7 +76,7 @@
 		
 		<section class="genbox col-half" id="practitioners">
 			{% for doctor, appointments in mega_dict.items %}
-			<form method="post" class="practitioner working" action="/doctors/update">
+			<form method="post" class="practitioner available" action="/doctors/update">
 				{% csrf_token %}
 				<input type="hidden" name="doctor_id" value="{{ doctor.id }}" />
 				<input type="hidden" name="status" value="{{ doctor.status }}" />
@@ -84,7 +84,7 @@
 				<p class="practitioner-name">{{ doctor }}</p>
 				<ul class="inline patients">
 					{% for appointment in appointments %}
-					<li class="patient" id="patient-id-0000000">
+					<li class="patient">
 						<span class="name">{{ appointment.patient }}</span>
 						<span class="practitioner-name">{{ doctor }}</span>
 						<span class="room-number">
