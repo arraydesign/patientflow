@@ -1,37 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="wf-inactive">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=1450">
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="description" content="">
-		<meta name="author" content="">
-		
+		<style type="text/css" media="screen">html.wf-inactive h1, html.wf-inactive h2, html.wf-inactive h3, html.wf-inactive h4, html.wf-inactive p, html.wf-inactive li, html.wf-inactive a, html.wf-inactive span, html.wf-inactive label, html.wf-inactive td, html.wf-inactive th, html.wf-inactive fieldset, html.wf-inactive label, html.wf-inactive input, html.wf-inactive select, html.wf-inactive textarea, html.wf-inactive small, html.wf-loading h1, html.wf-loading h2, html.wf-loading h3, html.wf-loading h4, html.wf-loading p, html.wf-loading li, html.wf-loading a, html.wf-loading span, html.wf-loading label, html.wf-loading td, html.wf-loading th, html.wf-loading fieldset, html.wf-loading label, html.wf-loading input, html.wf-loading select, html.wf-loading textarea, html.wf-loading small {visibility: hidden;}</style>
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 		<title>{% block title %}{% endblock %}</title>
 
-		<link rel="shortcut icon" href="{{ STATIC_URL }}ico/favicon.png">
-
-	    <link href="{{ STATIC_URL }}css/styles.css" rel="stylesheet">
-	    
-	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	    <!--[if lt IE 9]>
-	      <script src="{{ STATIC_URL }}js/html5shiv.js"></script>
-	      <script src="{{ STATIC_URL }}js/respond.min.js"></script>
-	    <![endif]-->
-
-	    {% block css %}{% endblock %}
+		<!-- <meta name="description" content=""> -->
+		<!-- <meta name="keywords" content=""> -->
+		<!-- <meta name="author" content=""> -->
+		<!-- <meta name="viewport" content="width=1450"> -->
+		<!-- <meta name="apple-mobile-web-app-capable" content="yes" /> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		
+		<link rel="stylesheet" href="{{ STATIC_URL}}css/styles.css" type="text/css" media="screen">
+		<script type="text/javascript" src="{{ STATIC_URL}}js/jquery.min.js"></script>
+		<script type="text/javascript">(function() { var config = { kitId: 'hkz5fci', scriptTimeout: 3000};
+	    var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s) })(); var $docWidth = $(window).width();</script>
 	</head>
 	<body>
-		{% block content %}{% endblock %}
+		<body id="{% block basepage %}{% endblock %}" class="{% block baseclass %}{% endblock %}"><ul id="grid"><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li></ul><!-- END #grid -->
+	
+		<div class="wrapper">
+			<!-- - - - - - - - - - HEADER STARTS - - - - - - - - - -->
+			<header>
+				<h1>Patient<strong>Flow</strong></h1>
+				<form action="" method="get" id="auto-manual" accept-charset="utf-8"><fieldset><div id="switch"><input type="checkbox" value="auto" class="checkbox" checked="checked" /><label>Auto</label></div><button id="add-one">Add One</button></fieldset></form>
+				<nav>
+					<ul class="inline">
+						<li id="add-patient-btn"><a href="#add-patient" class="fb-inline" title="Add Patient">Add Patient</a></li>
+						<li id="add-practitioner-btn"><a href="#add-practitioner" class="fb-inline" title="Add Practitioner">Add Practitioner</a></li>
+						<li id="collapse-btn"><a href="#" class="img-txt">Hide Buttons</a></li>
+					</ul>
+				</nav>
+			</header>
 
-		<!-- Bootstrap core JavaScript
-	    ================================================== -->
-	    <!-- Placed at the end of the document so the pages load faster -->
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-	    
-	    <script src="{{ STATIC_URL }}js/html5placeholder.jquery.min.js" type="text/javascript"></script>
-	    <script src="{{ STATIC_URL }}js/script.js"></script>
-	    {% block javascript %}{% endblock %}
+			{% block content %}{% endblock %}
+		</div><!-- END #wrapper -->
+
+		<!-- - - - - - - - - FOOTER STARTS - - - - - - - - -->
+		<footer>
+			<div>
+				<p><span class="source-org vcard copyright">Copyright PatientFlow</span></p>
+				<ul class="inline foot-nav">
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">Privacy Policy</a></li>
+				</ul>
+			</div>
+		</footer><!-- END footer -->
+		
+		<script type="text/javascript" src="{{ STATIC_URL}}js/jquery.jkey.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL}}js/jquery.fancybox.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL}}js/script.js"></script>
 	</body>
 </html>

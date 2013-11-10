@@ -1,0 +1,104 @@
+/* RECEPTIONIST
+-------------------------------------------------------------- */
+
+#receptionist .col-half {
+    padding-top: 24px;
+}
+
+#receptionist #rooms {}
+
+#receptionist .room {
+    border-radius: 8px 8px 8px 8px;
+    height: 88px;
+    margin-bottom: 16px;
+    margin-left: 6.06061%;
+    margin-right: 3.0303%;
+    overflow: hidden;
+}
+
+#receptionist .room .room-number {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    float: left;
+    font-size: 52px;
+    font-weight: 300;
+    height: 88px;
+    line-height: 90px;
+    text-align: center;
+    width: 26.6667%;
+}
+
+#receptionist .room .patient {
+    font-size: 20px;
+    padding: 20px 16px;
+}
+
+#receptionist .room .patient .practitioner-name {
+    color: #ffffff;
+    display: block;
+    font-weight: 700;
+    position: relative;
+    top: -24px;
+}
+
+#receptionist .room .patient .name {
+    color: #FFFFFF;
+    font-size: 20px;
+    padding: 0;
+    position: relative;
+    top: 24px;
+    width: auto;
+}
+
+#receptionist .room .patient .room-number,
+#receptionist .room .patient .arrived,
+#receptionist .room .patient .appt-start,
+#receptionist .room .patient .appt-length,
+#receptionist .room .patient .waiting-time {
+	display: none;
+}
+
+
+#receptionist #practitioners {}
+
+#receptionist .practitioner {
+    margin-bottom: 1px;
+    margin-right: 6.06061%;
+    margin-left: 3.0303%;
+    overflow: visible;
+}
+
+#receptionist .practitioner .practitioner-name {}
+
+#receptionist .practitioner .patients {}
+
+#receptionist .practitioner .patient:nth-child(even) {}
+
+#receptionist .practitioner .patient .name {}
+
+#receptionist .practitioner .patient .practitioner-name {}
+
+#receptionist .practitioner .patient .room-number {}
+
+#receptionist .practitioner .patient .arrived {}
+
+#receptionist .practitioner .patient .appt-start {}
+
+#receptionist .practitioner .patient .appt-length {}
+
+#receptionist .practitioner .patient .waiting-time {}
+
+
+
+/* WAITING ROOM
+-------------------------------------------------------------- */
+
+/* EXAM ROOM
+-------------------------------------------------------------- */
+
+
+
+/* MEDIUM
+--------------------------------------------------------------
+
+@media screen and (max-width: 800px) {} */

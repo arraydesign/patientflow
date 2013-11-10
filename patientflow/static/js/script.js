@@ -2,6 +2,31 @@ $(document).ready(function() {
 	$("span.doctor-status-button").on("click", updateDoctorStatus);
     $("#assign-next-patient").on("click", assignNextPatient);
     // $("#room-action").on("click", roomAction);
+
+    $('html').addClass('js-active');
+
+    /* Grid */            
+    $(document).jkey('control+g', function() {
+        $('ul#grid').toggle();
+    });
+
+    /* Modals */
+    $('.fb-inline').fancybox({
+        autoSize: false,
+        autoHeight: true,
+        padding: 16,
+        width: 672,
+        helpers: {
+            title : {
+                type : 'inside'
+            },
+            overlay : {
+                css : {
+                    'background' : 'rgba(0,42,53,0.9)'
+                }
+            }
+        }
+    });
 }); 
 
 window.setInterval(autoAssign, 3000);

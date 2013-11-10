@@ -1,0 +1,717 @@
+/* TypeKit set-up
+-------------------------------------------------------------- */
+
+html.wf-active h1, html.wf-active h2, html.wf-active h3, html.wf-active h4, html.wf-active p, html.wf-active li, html.wf-active a, html.wf-active span, html.wf-active label, html.wf-active td, html.wf-active th, html.wf-active fieldset, html.wf-active label, html.wf-active input, html.wf-active select, html.wf-active textarea, html.wf-active small {
+	visibility: visible;
+}
+
+.wf-active p {
+    overflow: hidden;
+}
+
+/* Some basic resets
+-------------------------------------------------------------- */
+
+html, body, div, span, object, iframe, header, nav, aside, footer, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, figure, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, figcaption, tbody, tfoot, thead, tr, th, td {border:0 none;margin:0;padding:0;vertical-align:baseline;}
+
+h1, h2, h3, h4, header, .wrapper, #logo, .genbox, .gallery-icon, .thumbnail, .img-centre, .img-centre-w, .img-centre-h, li.gallery-item, fieldset, .fieldrow, label, .multiple label + span, .file-row label + span, input, select, button, .btn, button span, .btn span, footer, p + img, ul ul, ul ol, ol ol, ol ul, dl.section-list dt, dl.section-list dt.selected a, .custom, figure, img, iframe, embed, video {position: relative;}
+
+dl.section-list dt, nav ul, .content, aside, .gallery-icon, .thumbnail, .img-centre, .img-centre-w, .img-centre-h, form, .fieldrow, footer, footer div, footer ul {overflow: hidden;}
+
+
+/* HTML5 display definitions
+-------------------------------------------------------------- */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary { /* Corrects block display not defined in IE6/7/8/9 & FF3 */
+    display: block;
+}
+
+audio,
+canvas,
+video { /* Corrects inline-block display not defined in IE6/7/8/9 & FF3 */
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+audio:not([controls]) { /* Prevents modern browsers from displaying 'audio' without controls; Remove excess height in iOS5 devices */
+    display: none;
+    height: 0;
+}
+
+[hidden] { /* Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4; no IE6 support */
+    display: none;
+}
+
+
+/* Base
+-------------------------------------------------------------- */
+
+html {
+    font-size: 100%; /* 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units */
+    -webkit-text-size-adjust: 100%; /* 2. Prevents iOS text size adjust after orientation change, without disabling user zoom */
+    -ms-text-size-adjust: 100%; /* 2. Prevents iOS text size adjust after orientation change, without disabling user zoom */
+}
+
+html,
+body,
+button, button *,
+input,
+select,
+textarea { /* Addresses font-family inconsistency between 'textarea' and other form elements. */
+    font-family: "franklin-gothic-urw",Helvetica,Arial,sans-serif;
+    font-size: 1em;
+    line-height: 1.5em;
+    color: #002a35;
+}
+
+html, body { /* Addresses margins handled incorrectly in IE6/7 */
+    margin: 0;
+    height: 100%;
+}
+
+
+/* Links
+-------------------------------------------------------------- */
+
+a {
+	outline: 0;
+	text-decoration: underline;
+	color: #236898;
+}
+
+a:focus { /* Addresses outline displayed oddly in Chrome */
+    outline: 0;
+}
+
+a:hover,
+a:active { /* Improves readability when focused and also mouse hovered in all browsers */
+    outline: 0;
+	color: #2E8ACA;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a {
+    color: inherit;
+}
+
+
+/* Typography
+-------------------------------------------------------------- */
+
+::selection,
+::-moz-selection {}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+h1 {
+    font-size: 44px;
+    line-height: 48px;
+}
+
+h2 {
+    font-size: 1.5em;
+    padding-bottom: 0.83em;
+    padding-top: 0.83em;
+}
+
+h3 {
+    font-size: 1.17em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+h4 {
+    font-size: 1em;
+    padding-bottom: 1.33em;
+    padding-top: 1.33em;
+}
+
+abbr[title] { /* Addresses styling not present in IE7/8/9, S5, Chrome */
+    border-bottom: 1px dotted;
+}
+
+b,
+strong { /* Addresses style set to 'bolder' in FF3+, S4/5, Chrome */
+    font-weight: bold;
+}
+
+blockquote {
+    margin: 1em 40px;
+}
+
+dfn { /* Addresses styling not present in S5, Chrome */
+    font-style: italic;
+}
+
+mark { /* Addresses styling not present in IE6/7/8/9 */
+    background: #ff0;
+    color: #000;
+}
+
+p,
+pre { /* Addresses margins set differently in IE6/7 */
+    margin: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+pre,
+code,
+kbd,
+samp { /* Corrects font family set oddly in IE6, S4/5, Chrome */
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+pre { /* Improves readability of pre-formatted text in all browsers */
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+q { /* 1. Addresses CSS quotes not supported in IE6/7 */
+    quotes: none;
+}
+
+q:before,
+q:after { /* 2. Addresses quote property not supported in S4 */
+    content: '';
+    content: none;
+}
+
+hr {
+    border-style: none none dashed;
+    border-width: 0 0 1px;
+    border-color: gray;
+}
+
+p.small,
+ul.small li,
+small {
+    font-size: 0.75em;
+    line-height: 1.16em;
+}
+
+sub,
+sup { /* Prevents sub and sup affecting line-height in all browsers */
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+
+/* Lists
+-------------------------------------------------------------- */
+
+dl,
+menu,
+ol,
+ul { /* Addresses margins set differently in IE6/7 */
+    margin: 0;
+    list-style:outside disc;
+    padding-left: 1.5em;
+    padding-bottom: 0.5em;
+}
+
+li {
+    padding-top: 0.5em;
+}
+
+ul ul,
+ol ul {
+    list-style:circle outside none;
+    padding-bottom: 0;
+}
+
+ul ol,
+ol ol {
+    list-style:lower-alpha outside none;
+    padding-bottom: 0;
+}
+
+dt {
+    float: left;
+}
+
+dd {
+    margin: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+menu,
+ol,
+ul { /* Addresses paddings set differently in IE6/7 */
+    padding: 0 0 0 2em;
+}
+
+nav ul,
+nav ol { /* Corrects list images handled incorrectly in IE7 */
+    list-style: none;
+    list-style-image: none;
+    padding-left: 0;
+}
+
+nav li, #wp_page_numbers li {
+    display: inline;
+    float: left;
+    padding: 0px;
+}
+
+blockquote {
+    border-left: 0.5em solid gray;
+}
+
+blockquote p {
+}
+
+blockquote p.author {
+    font-style: italic;
+    text-align: right;
+}
+
+blockquote p.author:before {
+    content: "— ";
+}
+
+
+/* Images, Figures & Embedded content
+-------------------------------------------------------------- */
+
+img,
+iframe,
+embed,
+video {
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    max-width: 96.5812%;
+}
+
+iframe,
+embed,
+video {
+    min-width: 54%;
+}
+
+img {
+    border: 0; /* 1. Removes border when inside 'a' element in IE6/7/8/9, FF3 */
+    -ms-interpolation-mode: bicubic; /* 2. Improves image quality when scaled in IE7 */
+    height: auto;
+}
+
+figcaption {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    display: none;
+    padding: 0.75em 0 0.75em 0.625em;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+figure > a.caption {
+    background: none repeat scroll 0 0 #000000;
+    border: 3px solid #FFFFFF;
+    border-radius: 1.13333333em;
+    color: #FFFFFF;
+    font-size: 0.9375em;
+    font-style: italic;
+    height: 1.6em;
+    line-height: 1.6em;
+    opacity: 0.3;
+    outline: medium none;
+    position: absolute;
+    right: 0.5em;
+    text-align: center;
+    text-decoration: none;
+    top: 0.5em;
+    width: 1.6em;
+}
+
+figure > a:hover.caption {
+    opacity: 1;
+}
+
+figure { /* Addresses margin not present in IE6/7/8/9, S5, O11 */
+    margin: 0;
+}
+
+svg:not(:root) { /* Corrects overflow displayed oddly in IE9 */
+    overflow: hidden;
+}
+
+
+/* Forms
+-------------------------------------------------------------- */
+
+form { /* Corrects margin displayed oddly in IE6/7 */
+    margin: 0;
+}
+
+fieldset { /* Define consistent border, margin, and padding */
+    border: none;
+    margin: 0;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+.fieldrow {
+    background: none repeat scroll 0 0 #EFE7D4;
+    border: 4px solid #EFE7D4;
+    border-radius: 8px 8px 8px 8px;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.fieldrow.select-row {
+	background: #fff;
+}
+
+label {
+    color: #78746a;
+    float: left;
+    font-size: 20px;
+    font-style: normal;
+    height: 48px;
+    line-height: 46px;
+    margin-right: 8px;
+    min-width: 128px;
+    padding: 0 0 0 16px;
+}
+
+label.for-boxes {
+    background: none repeat scroll 0 0 transparent !important;
+    color: black !important;
+    display: inline-block;
+    float: none;
+    height: 1.06666667em;
+    line-height: 0.93333333em;
+    margin-top: 0.33333333em;
+    min-width: 0;
+    padding-left: 0;
+    padding-right: 1.5%;
+    top: 0.13333333em;
+}
+
+.fieldrow.textarea label {
+    display: block;
+    float: none;
+    width: 98% !important;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	/* Safari and Google Chrome only - fix margins */
+	label {
+    line-height: 2em;
+	}
+}
+
+legend {
+    border: 0; /* 1. Corrects color not being inherited in IE6/7/8/9 */
+    padding: 0;
+    white-space: normal; /* 2. Corrects text not wrapping in FF3 */
+    *margin-left: -7px; /* 3. Corrects alignment displayed oddly in IE6/7 */
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1. Corrects font size not being inherited in all browsers */
+    margin: 0; /* 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome */
+    vertical-align: baseline; /* 3. Improves appearance and consistency in all browsers */
+    *vertical-align: middle; /* 3. Improves appearance and consistency in all browsers */
+}
+
+input {
+    border: medium none;
+    margin: 0;
+    padding: 0;
+    line-height: normal; /* 1. Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet */
+}
+
+input[type="text"], input[type="number"], input[type="date"] {
+    border-bottom: 1px dashed #EFE7D4;
+    color: #2e8aca;
+    display: block;
+    font-size: 24px;
+    font-style: italic;
+    height: 37px;
+    line-height: 24px;
+    margin: 4px 0 5px !important;
+    outline: 8px solid #FFFFFF;
+    padding-top: 1px;
+}
+
+input[type=text] {
+    width: 472px;
+}
+
+input.phone-1, input.phone-2, input.phone-3, 
+input.postal-1, input.postal-2 {
+    display: inline;
+    margin-right: 0.93333333em !important;
+    text-align: center;
+    width: 2.6em !important;
+}
+
+input.phone-1, input.phone-2 {
+    width: 1.93333333em !important;
+}
+
+input.phone-3, input.postal-2 {
+    margin-right: 0 !important;
+}
+
+input[type="file"] {
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+
+input.fake-file {
+    position: absolute;
+    width: 78%;
+    z-index: 5;
+}
+
+input::-webkit-input-placeholder {
+    color: gray;
+    opacity: 0.5;
+}
+
+input:-moz-placeholder {
+    color: gray;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	/* Safari and Google Chrome only - fix margins */
+	input[type=radio], input[type=checkbox] {
+    top: -1px;
+	}
+}
+
+select {
+    border-top: none; border-left: none; border-right: none;
+    border-bottom: 1px dashed #EFE7D4;
+    color: #2E8ACA;
+    display: block;
+    font-size: 24px;
+    font-style: italic;
+    height: 35px;
+    left: 6px;
+    margin: 0 !important;
+    position: relative;
+    top: 8px;
+    vertical-align: bottom;
+    width: 472px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	/* Safari and Google Chrome only - fix margins */
+	select {
+    font-size: 1em;
+    top: 0.1875em;
+	}
+}
+
+.select-row label, .radio-row label, .check-row label {
+    background: none repeat scroll 0 0 #EFE7D4;
+    margin-right: 0px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1. Addresses box sizing set to content-box in IE8/9 */
+    padding: 0; /* 2. Removes excess padding in IE8/9 */
+    *height: 0.8125em; /* 3. Removes excess padding in IE7; excess padding remains in IE6 */
+    *width: 0.8125em; /* 3. Removes excess padding in IE7; excess padding remains in IE6 */
+    margin-left: 1.5%;
+    top: 0.125em;
+    vertical-align: middle;
+}
+
+.radio-row, .check-row {
+    background: none repeat scroll 0 0 #eeeeee;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1. Addresses appearance set to searchfield in S5, Chrome */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof) */
+    box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none; /* Removes inner padding and search cancel button in S5, Chrome on OS X */
+}
+
+button,
+.btn,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    cursor: pointer; /* 1. Improves usability and consistency of cursor style between image-type 'input' and others */
+    -webkit-appearance: button; /* 2. Corrects inability to style clickable 'input' types in iOS */
+    *overflow: visible;  /* 3. Removes inner spacing in IE7 without affecting normal text inputs; inner spacing remains in IE6 */
+    background: #677B82;
+    border: medium none;
+    border-radius: 4px 4px 4px 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 24px;
+    overflow: visible;
+    padding: 4px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background 200ms ease-in-out 0s;
+}
+
+button[disabled],
+input[disabled] {
+    cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;  /* overrides extra padding in Firefox */
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+button:hover,
+.btn:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+    background: #ffffff;
+}
+
+.btn-cancel {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+
+.btn-cancel:hover {
+    background-color: #555555;
+}
+
+textarea {
+    overflow: auto; /* 1. Removes default vertical scrollbar in IE6/7/8/9 */
+    vertical-align: top; /* 2. Improves readability and alignment in all browsers */
+    background: url("assets/BG-textarea.png") repeat scroll left -2px #FFFFFF;
+    border: medium none;
+    color: black;
+    display: block;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 21px;
+    margin: 2px 0 5px !important;
+    min-height: 125px;
+    outline: 5px solid #FFFFFF;
+    padding: 1px 0 0;
+    resize: none;
+    width: 81% !important;
+}
+
+fieldset.submit button, fieldset.submit .btn {
+    float: right;
+    margin-left: 2%;
+}
+
+.file-row .btn {
+    float: right;
+    right: -3px;
+    top: 0;
+    width: 20.5%;
+}
+
+.file-row .btn span {
+    padding: 0;
+}
+
+.fieldrow.error {
+border: 4px solid red;
+}
+
+.fieldrow.error label {
+background: red;
+color: #ffffff;
+}
+
+
+/* Tables
+-------------------------------------------------------------- */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 0.5em;
+    text-align: left;
+    width: 100%;
+}
+
+table th, table td {
+    border-bottom: 1px solid gray;
+    line-height: 2.125em;
+}
+
+table tr th:first-child, table tr td:first-child {
+    padding-left: 0.5em;
+}
+
+table tr th:last-child, table tr td:last-child {
+    padding-right: 0.5em;
+}
+
+table thead th, table tbody tr:last-child td {
+    border-bottom: 1px solid black;
+}
+
+table tfoot td {}
+
+
+/* MEDIUM
+--------------------------------------------------------------
+
+@media screen and (max-width: 800px) {} */
+

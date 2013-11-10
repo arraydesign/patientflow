@@ -1,6 +1,8 @@
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
 from django import http
 
+from django.db.models import Q
+
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template.loader import get_template
 from django.template import Context
@@ -20,6 +22,9 @@ class ReceptionistView(TemplateView):
 		add_doctor_form = DoctorForm()
 		add_patient_form = PatientForm()
 		doctors = Doctor.objects.all()
+		appts = Appointment.objects.filter(~Q(status="Completed"), ~Q(room__isnull=True) )
+
+		# print appts
 
 		mega_dict = {}
 
@@ -34,6 +39,7 @@ class ReceptionistView(TemplateView):
 		context['add_doctor_form'] = add_doctor_form
 		context['add_patient_form'] = add_patient_form
 		context['doctors'] = doctors
+		context['appts'] = appts
 		context['mega_dict'] = mega_dict
 
 		return context

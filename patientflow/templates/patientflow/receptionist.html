@@ -4,93 +4,108 @@
 
 {% block css %}{% endblock %}
 
-{% block content %}
-	<fieldset>
-		<legend>Assign Next Patient</legend>
-		<form action="/patients/assign-next-patient/" method="post">
-			{% csrf_token %}
-			<input id="assign-next-patient" type="submit" value="Assign Next Patient">
-		</form>
-	</fieldset>
+{% block basepage %}receptionist{% endblock %}
+{% block baseclass %}receptionist-view{% endblock %}
 
-	<fieldset>
-		<legend>Add Practitioner</legend>
+{% block content %}
+
+	<!-- - - - - - - - - - MODALS - - - - - - - - - -->
+
+	<div id="add-practitioner" style="display: none;">
 		<form action="/doctors/add-doctor" method="post">{% csrf_token %}
-	        <table>
-	            <tr>
-	                <td>{{ add_doctor_form.first_name.label_tag }} {{ add_doctor_form.first_name }}</td>
-	                <td>{{ add_doctor_form.last_name.label_tag }} {{ add_doctor_form.last_name }}</td>
-	            </tr>
-	            <tr>
-	            	<td>{{ add_doctor_form.speciality.label_tag }}{{ add_doctor_form.speciality }}</td>
-	            	<td>{{ add_doctor_form.status.label_tag }}{{ add_doctor_form.status }}</td>
-	            </tr>
-	        </table>
+			<div class="fieldrow text-row">
+				{{ add_doctor_form.first_name.label_tag }} {{ add_doctor_form.first_name }}
+			</div>
+			<div class="fieldrow text-row">
+				{{ add_doctor_form.last_name.label_tag }} {{ add_doctor_form.last_name }}
+			</div>
+			<div class="fieldrow text-row">
+				{{ add_doctor_form.speciality.label_tag }}{{ add_doctor_form.speciality }}
+			</div>
+			<div class="fieldrow text-row">
+				{{ add_doctor_form.status.label_tag }}{{ add_doctor_form.status }}
+			</div>
 	        <input type="submit" value="Add Practitioner" />
 		</form>
-	</fieldset>
-
-	<fieldset>
-		<legend>Add Patient</legend>
+	</div>
+	<div id="add-patient" style="display: none;">
 		<form action="/patients/add-patient" method="post">{% csrf_token %}
-	        <table>
-	            <tr>
-	                <td>{{ add_patient_form.first_name.label_tag }} {{ add_patient_form.first_name }}</td>
-	                <td>{{ add_patient_form.last_name.label_tag }} {{ add_patient_form.last_name }}</td>
-	            </tr>
-	            <tr>
-	            	<td>{{ add_patient_form.doctor.label_tag }}{{ add_patient_form.doctor }}</td>
-				</tr>
-	            <tr>
-	            	<td>{{ add_patient_form.app_time.label_tag }}{{ add_patient_form.app_time }}</td>
-	            	<td>{{ add_patient_form.app_length.label_tag }}{{ add_patient_form.app_length }}</td>
-	            </tr>
-	        </table>
+			<div class="fieldrow text-row">
+				{{ add_patient_form.first_name.label_tag }} {{ add_patient_form.first_name }}
+			</div>
+			<div class="fieldrow text-row">
+				{{ add_patient_form.last_name.label_tag }} {{ add_patient_form.last_name }}
+			</div>
+			<div class="fieldrow text-row">
+				{{ add_patient_form.doctor.label_tag }}{{ add_patient_form.doctor }}
+			</div>
+			<div class="fieldrow text-row">
+				{{ add_patient_form.app_time.label_tag }}{{ add_patient_form.app_time }}
+			</div>
+			<div class="fieldrow text-row">
+				{{ add_patient_form.app_length.label_tag }}{{ add_patient_form.app_length }}
+			</div>
 	        <input type="submit" value="Add Patient" />
 		</form>
-	</fieldset>
+	</div>
 
-	<fieldset>
-		<legend>Patient Queue</legend>
-		{% for doctor, appointments in mega_dict.items %}
-			<form action="/doctors/update" method="post">
+	<!-- - - - - - - - - - CONTENT STARTS - - - - - - - - - -->
+
+	<div class="content">
+		
+		<section class="col-half" id="rooms">
+			{% for appt in appts %}
+			<div class="room {% if appt.room.status == 'Waiting' %}blue{% endif %}
+			{% if appt.room.status == 'Available' %}green{% endif %}
+			{% if appt.room.status == 'Needs Cleaning' %}yellow{% endif %}
+			{% if appt.room.status == 'Occupied' %}red{% endif %}
+			{% if appt.room.status == 'Unavailable' %}gray{% endif %}">
+				<span class="room-number">{{ appt.room.number }}</span>
+				<p class="patient">
+					<span class="name">{{ appt.patient }}</span>
+					<span class="practitioner-name">{{ appt.doctor }}</span>
+					<span class="room-number">{{ appt.room.number }}</span>
+					<span class="arrived">{{ appt.patient.arrival_time|date:"g:iA" }}</span>
+					<span class="appt-start">{{ appt.app_time|date:"g:iA" }}</span>
+					<!-- <span class="appt-length">11 / 20</span> -->
+					<!-- <span class="waiting-time">04 / 05</span> -->
+				</p>
+			</div>
+			{% endfor %}
+		</section>
+		
+		<section class="genbox col-half" id="practitioners">
+			{% for doctor, appointments in mega_dict.items %}
+			<form method="post" class="practitioner working" action="/doctors/update">
 				{% csrf_token %}
 				<input type="hidden" name="doctor_id" value="{{ doctor.id }}" />
-				
-			
-				<table>
-					<tr>
-						<td>{{ doctor }}</td>
-						<td><span class="doctor-status-button">{{ doctor.status }}</span><input type="hidden" name="status" value="{{ doctor.status }}" /></td>
-					</tr>
-				</table>
-			</form>	
-			<table>
-			{% for appointment in appointments %}
-				<tr>
-					<td style="padding: 2px 30px">
-						{{ appointment.patient }}
-					</td>
-					<td style="padding: 2px 30px">
-					{% if appointment.room.number %}
-						{{ appointment.room.number }}
-					{% else %}
-						Unassigned
-					{% endif %}
-					</td>
-					<td style="padding: 2px 30px">
-						{{ appointment.patient.arrival_time }} for
-						{{ appointment.app_time }}
-					</td>
-					<td style="padding: 2px 30px">
-						{{ appointment.app_length }} min
-					</td>
-				</tr>
+				<input type="hidden" name="status" value="{{ doctor.status }}" />
+
+				<p class="practitioner-name">{{ doctor }}</p>
+				<ul class="inline patients">
+					{% for appointment in appointments %}
+					<li class="patient" id="patient-id-0000000">
+						<span class="name">{{ appointment.patient }}</span>
+						<span class="practitioner-name">{{ doctor }}</span>
+						<span class="room-number">
+							{% if appointment.room.number %}
+								{{ appointment.room.number }}
+							{% else %}
+								...
+							{% endif %}
+						</span>
+						<span class="appt-start">{{ appointment.app_time|date:"g:iA" }}</span>
+						<span class="arrived">{{ appointment.patient.arrival_time|date:"g:iA" }}</span>
+						<!-- <span class="appt-length">11 / 20</span> -->
+						<!-- <span class="waiting-time">04 / 05</span> -->
+					</li>
+					{% endfor %}
+				</ul>
+			</form>
 			{% endfor %}
-			</table>
-			
-		{% endfor %}	
-	</fieldset>
+		</section>
+
+	</div><!-- END .content -->
 
 {% endblock %}
 
