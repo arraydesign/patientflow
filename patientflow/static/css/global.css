@@ -300,6 +300,10 @@ header form #add-one {
     width: 124px;
 }
 
+.manual header form #add-one {
+    display: block;
+}
+
 nav {
     left: auto;
     position: absolute;
@@ -537,7 +541,7 @@ canvas.alignright {
     text-decoration: none;
 }
 
-.practitioner.working .practitioner-name:after {
+.practitioner.available .practitioner-name:after {
     content: "Available";
 }
 
