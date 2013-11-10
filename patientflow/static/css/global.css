@@ -108,6 +108,10 @@ dl.section-list dd.selected {
 /* GLOBAL GENERAL
 -------------------------------------------------------------- */
 
+html {
+    background-color: #FEF6E3;
+}
+
 body {
     background: none repeat scroll 0 0 #FEF6E3;
     overflow-x: hidden;
@@ -461,22 +465,22 @@ canvas.alignright {
     box-shadow: 0 1px 0 #4a5151;
 }
 
-.room, .room.blue {
+.room.blue {
     background-color: #2e8aca;
     box-shadow: 0 1px 0 #174565;
 }
 
-.room, .room.red {
+.room.red {
     background-color: #cc4c27;
     box-shadow: 0 1px 0 #662614;
 }
 
-.room, .room.green {
+.room.green {
     background-color: #859a3b;
     box-shadow: 0 1px 0 #434d1e;
 }
 
-.room, .room.yellow {
+.room.yellow {
     background-color: #fdba63;
     box-shadow: 0 1px 0 #7f5d32;
 }
@@ -518,21 +522,17 @@ canvas.alignright {
     text-decoration: none;
 }
 
-/*.practitioner.working .practitioner-name:after {
+.practitioner.working .practitioner-name:after {
     content: "Working";
-}*/
+}
 
 .practitioner.unavailable .practitioner-name:after {
-    content: "Unavailable";
+    content: "On Break";
 }
 
-.practitioner.available .practitioner-name:after {
-    content: "Available";
-}
-/*
 .practitioner.done .practitioner-name:after {
     content: "Went Home";
-}*/
+}
 
 .practitioner .patients {}
 
@@ -549,15 +549,15 @@ canvas.alignright {
     position: relative;
 }
 
-#manual .practitioner .patient {
+.manual .practitioner .patient {
     cursor: pointer;
 }
 
-#manual .practitioner .patient:hover {
+.manual .practitioner .patient:hover {
 	background: rgba(255,255,255,0.5)
 }
 
-#manual .practitioner .patient:hover .name:after {
+.manual .practitioner .patient:hover .name:after {
     background: url(assets/BTN-patient_drag.gif) no-repeat scroll 8px 7px rgba(255,255,255,0.5);
     border-bottom: 1px solid #B3AD9F;
     border-left: 1px solid #B3AD9F;
@@ -571,7 +571,7 @@ canvas.alignright {
     width: 22px;
 }
 
-#manual .practitioner .patient:active .name:after {
+.manual .practitioner .patient:active .name:after {
     top: 9px;
 }
 
@@ -677,11 +677,18 @@ footer p {
     padding-bottom: 8px;
     padding-top: 8px;
 }
+
 	
 /* MEDIUM
--------------------------------------------------------------- */
+--------------------------------------------------------------
 
 @media screen and (max-width: 800px) {
+.wrapper, footer {
+    width: 768px;
+}
+} */
+
+ia screen and (max-width: 800px) {
 .wrapper, footer {
     width: 768px;
 }

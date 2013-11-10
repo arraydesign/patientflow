@@ -24,8 +24,6 @@ class ReceptionistView(TemplateView):
 		doctors = Doctor.objects.all()
 		appts = Appointment.objects.filter(~Q(status="Completed"), ~Q(room__isnull=True) )
 
-		# print appts
-
 		mega_dict = {}
 
 		for doctor in doctors:
@@ -60,19 +58,24 @@ class RoomView(TemplateView):
 				appointments = Appointment.objects.filter(doctor=doctor).order_by('order')
 			
 				if appointment.room.status == "Waiting":
-					button_title = 'The Doctor Has Arrived'
+					button_title = 'Doctor Has Arrived'
+					body_color = 'blue'
 				
 				elif appointment.room.status == "Cleaning":
 					button_title = 'Cleaning Complete'
+					body_color = 'yellow'
 				
 				elif appointment.room.status == "Occupied":
 					button_title = 'Cleaning Required'
+					body_color = 'red'
 
 				elif appointment.room.status == "Available":
 					button_title = 'Hide Me'
+					body_color = 'green'
 				
 				elif appointment.room.status == "Unavailable":
 					button_title = 'Cleaning Required'
+					body_color = 'gray'
 
 			except Exception, e:
 				print e
@@ -86,6 +89,7 @@ class RoomView(TemplateView):
 			context['appointment'] = appointment
 			context['appointments'] = appointments
 			context['room'] = room
+			context['body_color'] = body_color
 
 		return context
 

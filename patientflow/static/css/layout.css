@@ -89,13 +89,210 @@
 #receptionist .practitioner .patient .waiting-time {}
 
 
+/* ROOM
+-------------------------------------------------------------- */
+
+body.room {
+    box-shadow: none !important;
+}
+
+body.room, body.room.gray {
+    background-color: #93A1A1;
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0.5, #93A1A1),
+		color-stop(1, #FEF6E3)
+	);
+	background-image: -moz-linear-gradient(bottom, #93A1A1 50%, #FEF6E3 100%);
+	background-image: linear-gradient(to bottom, #93A1A1 50%, #FEF6E3 100%);
+}
+
+body.room.blue {
+    background-color: #2e8aca;
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0.5, #93A1A1),
+		color-stop(1, #FEF6E3)
+	);
+	background-image: -moz-linear-gradient(bottom, #2e8aca 50%, #FEF6E3 100%);
+	background-image: linear-gradient(to bottom, #2e8aca 50%, #FEF6E3 100%);
+}
+
+body.room.red {
+    background-color: #cc4c27;
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0.5, #93A1A1),
+		color-stop(1, #FEF6E3)
+	);
+	background-image: -moz-linear-gradient(bottom, #cc4c27 50%, #FEF6E3 100%);
+	background-image: linear-gradient(to bottom, #cc4c27 50%, #FEF6E3 100%);
+}
+
+body.room.green {
+    background-color: #859a3b;
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0.5, #93A1A1),
+		color-stop(1, #FEF6E3)
+	);
+	background-image: -moz-linear-gradient(bottom, #859a3b 50%, #FEF6E3 100%);
+	background-image: linear-gradient(to bottom, #859a3b 50%, #FEF6E3 100%);
+}
+
+body.room.yellow {
+    background-color: #fdba63;
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0.5, #93A1A1),
+		color-stop(1, #FEF6E3)
+	);
+	background-image: -moz-linear-gradient(bottom, #fdba63 50%, #FEF6E3 100%);
+	background-image: linear-gradient(to bottom, #fdba63 50%, #FEF6E3 100%);
+}
+
+body.room .wrapper,
+body.room footer {
+    width: 768px;
+}
+
+body.room header,
+body.room .wrapper:before,
+body.room .wrapper:after,
+body.room footer,
+body.room footer:before,
+body.room footer:after {
+    display: none;
+}
+
+body.room .content {
+    border-top: none;
+    margin: 0;
+    padding: 0 32px;
+}
+
+body.room #current .patient {
+    height: 424px;
+    padding: 0;
+    position: relative;
+}
+
+body.room #current .patient .name,
+body.room #current .patient .practitioner-name {
+    color: #FFFFFF;
+    font-size: 40px;
+    font-weight: 600;
+    left: 0;
+    line-height: 56px;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 261px;
+    width: 100%;
+}
+
+body.room #current .patient .practitioner-name,
+body.room #current .patient .room-number {
+	display: block;
+}
+
+body.room #current .patient .practitioner-name {
+    font-weight: 300;
+    top: 309px;
+}
+
+body.room #current .patient .room-number {
+    color: #FFFFFF;
+    display: block;
+    font-size: 154px;
+    font-weight: 300;
+    left: 0;
+    line-height: 164px;
+    position: absolute;
+    top: 0;
+    width: auto;
+}
+
+body.room #current .patient .arrived,
+body.room #current .patient .appt-start,
+body.room #current .patient .appt-length,
+body.room #current .patient .waiting-time {
+	display: none;
+}
+
+body.room form#room-action-form{
+    height: 256px;
+    position: relative;
+}
+
+body.room #room-action {
+    background: none repeat scroll 0 0 #002A35;
+    border-radius: 16px 16px 16px 16px;
+    color: #93A1A1;
+    font-size: 44px;
+    height: 255px;
+    left: 0;
+    line-height: 56px;
+    margin: auto;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    width: 520px;
+    top: 0;
+}
+
+body.room #room-action, body.room.gray #room-action {
+    color: #93a1a1;
+}
+
+body.room.blue #room-action {
+	color: #2e8aca;
+}
+
+body.room.red #room-action {
+	color: #cc4c27;
+}
+
+body.room.green #room-action {
+	color: #859a3b;
+}
+
+body.room.yellow #room-action {
+	color: #fdba63;
+}
+
+body.room #room-action:active {
+    top: 1px;
+}
+
+body.room section#upcoming {
+    margin: 0 auto;
+    padding: 64px 32px;
+    width: 520px;
+}
+
+body.room form.practitioner {
+    overflow: visible;
+}
+
+body.room section#upcoming .practitioner .practitioner-name {
+	display: none;
+}
+
 
 /* WAITING ROOM
 -------------------------------------------------------------- */
-
-/* EXAM ROOM
--------------------------------------------------------------- */
-
 
 
 /* MEDIUM

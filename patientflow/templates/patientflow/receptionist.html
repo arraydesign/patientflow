@@ -96,7 +96,7 @@
 						</span>
 						<span class="appt-start">{{ appointment.app_time|date:"g:iA" }}</span>
 						<span class="arrived">{{ appointment.patient.arrival_time|date:"g:iA" }}</span>
-						<!-- <span class="appt-length">11 / 20</span> -->
+						<span class="appt-length">{{ appointment.app_length }} min</span>
 						<!-- <span class="waiting-time">04 / 05</span> -->
 					</li>
 					{% endfor %}

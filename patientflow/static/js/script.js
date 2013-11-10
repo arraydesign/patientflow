@@ -1,4 +1,5 @@
 var interval;
+var int;
 
 $(document).ready(function() { 
     // This DOES NOT work
@@ -16,20 +17,12 @@ $(document).ready(function() {
     });
 
     /* Auto Assign */
-    $("#switch").on("change", function(){
-        
-        var checkbox = $(this + ":first-child");
-    
-        if (checkbox.attr("checked"))
-        {
-            checkbox.removeAttr('checked');
-            clearInterval(interval);
-        }    
+
+    $(".checkbox").click(function(){
+        if($(this).is(":checked"))
+            int = window.clearInterval();
         else
-        {
-            checkbox.attr('checked', 'checked'); 
-            interval = setInterval(function(){autoAssign()}, 3000);
-        }
+            int = self.setInterval(function(){autoAssign()}, 2000);
     });
 
 

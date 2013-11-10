@@ -3,72 +3,72 @@
 {% block title %} Room {% endblock %}
 
 {% block css %}{% endblock %}
+{% block baseclass %}room{% endblock %}
+{% block colourclass %}{{ body_color }}{% endblock %}
 
 {% block content %}
-<h1>Room: {{ room.number }}</h1>
-<h1>Doctor: 
-	{% if appointment.doctor %}
-		{{ appointment.doctor }}
-	{% else %}
-		Not Assigned
-	{% endif %}
-</h1>
-<h1>Patient: 
-	{% if appointment.patient %}
-		{{ appointment.patient }}
-	{% else %}
-		Not Assigned
-	{% endif %}
-</h1>
+<!-- - - - - - - - - - CONTENT STARTS - - - - - - - - - -->
 
-<form action="/rooms/action" method="post">
-	{% csrf_token %}
-	<input type="hidden" name="app_id" value="{{ appointment.id }}" />
-	{% if button_title != "Hide Me" %}
-		<input id="room-action" type="submit" value="{{ button_title }}" />
-	{% endif %}
-</form>
+<div class="content">
 
-
-<fieldset>
-	<legend>Patient Queue</legend>
-	
-		<form action="/doctors/update" method="post">
-			{% csrf_token %}
-			<input type="hidden" name="doctor_id" value="{{ doctor.id }}" />
-		
-			<table>
-				<tr>
-					<td>{{ doctor }}</td>
-					<td><span class="doctor-status-button">{{ doctor.status }}</span><input type="hidden" name="status" value="{{ doctor.status }}" /></td>
-				</tr>
-			</table>
-		</form>	
-		<table>
-		<table>
-		{% for app in appointments %}
-			<tr>
-				<td style="padding: 2px 30px">
-					{{ app.patient }}
-				</td>
-				<td style="padding: 2px 30px">
-				{% if app.room.number %}
-					{{ app.room.number }}
+	<section class="col-full" id="current">
+		<p class="patient" id="patient-id-0000000">
+			<span class="name">{{ appointment.patient }}</span>
+			<span class="practitioner-name">
+				{% if appointment.doctor %}
+					{{ appointment.doctor }}
 				{% else %}
-					Unassigned
+					Not Assigned
 				{% endif %}
-				</td>
-				<td style="padding: 2px 30px">
-					{{ app.patient.arrival_time }} for
-					{{ app.app_time }}
-				</td>
-				<td style="padding: 2px 30px">
-					{{ app.app_length }} min
-				</td>
-			</tr>
-		{% endfor %}
-		</table>
-</fieldset>
+			</span>
+			<span class="room-number">{{ appointment.room.number }}</span>
+			<span class="arrived">{{ appointment.patient.arrival_time|date:"g:iA" }}</span>
+			<span class="appt-start">{{ appointment.app_time|date:"g:iA" }}</span>
+			<!-- <span class="appt-length">11 / 20</span> -->
+			<!-- <span class="waiting-time">04 / 05</span> -->
+		</p>
+		<form method="post" action="/rooms/action" id="room-action-form">
+			{% csrf_token %}
+			<input type="hidden" name="app_id" value="{{ appointment.id }}" />
+			{% if button_title != "Hide Me" %}
+				<input id="room-action" type="submit" value="{{ button_title }}" />
+			{% endif %}
+		</form>
+	</section>
+	<section class="col-full manual" id="upcoming">
+		<form method="post" class="practitioner working" action="/doctors/update">
+			<input type="hidden" name="doctor_id" value="{{ doctor.id }}" />
+			<!-- <input type="hidden" value="1" name="doctor_id">
+			<input type="hidden" value="Available" name="status">
+			<input type="hidden" value="olAC4uC0RgSWs7wRgnWgReZDHOHgRqKj" name="csrfmiddlewaretoken"> -->
+			<p class="practitioner-name">{{ doctor }}</p>
+			<ul class="inline patients">
+				{% for app in appointments %}
+				<li class="patient" id="patient-id-0000000">
+					<span class="name">{{ app.patient }}</span>
+					<span class="practitioner-name">{{ app.doctor }}</span>
+					<span class="room-number">
+						{% if app.room.number %}
+						{{ app.room.number }}
+						{% else %}
+							...
+						{% endif %}
+					</span>
+					<span class="appt-start">{{ app.app_time|date:"g:iA" }}</span>
+					<span class="arrived">{{ app.patient.arrival_time|date:"g:iA" }}</span>
+					<span class="appt-length">{{ app.app_length }} min</span>
+					<!-- <span class="waiting-time">04 / 05</span> -->
+				</li>
+				{% endfor %}
+			</ul>
+		</form>
+	</section>
+
+</div><!-- END .content -->
+
+
+
+
 
 {% endblock %}
 
