@@ -21,13 +21,13 @@
 
 <body id="<?= $basepage ?>" class="<?= $baseclass ?>"><ul id="grid"><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li><li class="img-txt">column</li></ul><!-- END #grid -->
 	
-	<div class="wrapper">
+	<div class="wrapper manual">
 
 <!-- - - - - - - - - - HEADER STARTS - - - - - - - - - -->
 
 		<header>
 			<h1>Patient<strong>Flow</strong></h1>
-			<form action="" method="get" id="auto-manual" accept-charset="utf-8"><fieldset><div id="switch"><input type="checkbox" value="auto" class="checkbox" checked="checked" /><label>Auto</label></div><button id="add-one">Add One</button></fieldset></form>
+			<form action="" method="get" id="auto-manual" accept-charset="utf-8"><fieldset><div id="switch"><input type="checkbox" value="auto" class="checkbox" /><label>Auto</label></div><button id="add-one">Add One</button></fieldset></form>
 			<nav>
 				<ul class="inline">
 					<li id="add-patient-btn"><a href="#add-patient" class="fb-inline" title="Add Patient">Add Patient</a></li>

@@ -482,6 +482,7 @@ canvas.alignright {
 .room, .room.gray {
     background-color: #93a1a1;
     box-shadow: 0 1px 0 #4a5151;
+    transition: all 200ms ease-in-out 0s;
 }
 
 .room.blue {
@@ -573,11 +574,11 @@ canvas.alignright {
 }
 
 .manual .practitioner .patient:hover {
-	background: rgba(255,255,255,0.5)
+	background: #fffbf4;
 }
 
 .manual .practitioner .patient:hover .name:after {
-    background: url(assets/BTN-patient_drag.gif) no-repeat scroll 8px 7px rgba(255,255,255,0.5);
+    background: url(assets/BTN-patient_drag.gif) no-repeat scroll 8px 7px #fffbf4;;
     border-bottom: 1px solid #B3AD9F;
     border-left: 1px solid #B3AD9F;
     border-radius: 12px 0 0 12px;

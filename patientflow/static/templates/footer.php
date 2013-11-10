@@ -14,6 +14,7 @@
 	
 	<script type="text/javascript" src="<?= $burl ?>js/jquery.jkey.js"></script>
 	<script type="text/javascript" src="<?= $burl ?>js/jquery.fancybox.js"></script>
+	<script type="text/javascript" src="<?= $burl ?>js/jquery.ui.js"></script>
 	<script type="text/javascript" src="<?= $burl ?>js/script.js"></script>
 </body>
 </html>

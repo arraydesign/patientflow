@@ -28,6 +28,27 @@ $(document).ready(function() {
 			}
 		}
 	});
+	
+/* Drag-n-Drop (Fake) */
+
+    $('.manual .practitioner li.patient').draggable({
+		containment: '.content',
+		stack: '#practitioners li.patient',
+		cursor: 'move',
+		revert: true
+    });
+    $('#receptionist .room.green').droppable({
+		drop: handleDropEvent
+	});
+	
+	function handleDropEvent( event, ui ) {
+		var draggable = ui.draggable,
+			$name = draggable.find('span.name').html(),
+			$practitioner = draggable.find('span.practitioner-name').html();
+		$(this).find('span.practitioner-name').text($practitioner);
+		$(this).find('span.name').text($name);
+		$(this).removeClass('green').addClass('red');
+	}
 
 /* Other Shit
 

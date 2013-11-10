@@ -134,7 +134,7 @@ include('header.php'); ?>
 	</section>
 	
 	<section class="genbox col-half" id="practitioners">
-		<form method="post" class="practitioner working" action="/doctors/update" id="dr-keith-chung">
+		<form method="post" class="practitioner available" action="/doctors/update" id="dr-keith-chung">
 			<input type="hidden" value="1" name="doctor_id">
 			<input type="hidden" value="Available" name="status">
 			<input type="hidden" value="olAC4uC0RgSWs7wRgnWgReZDHOHgRqKj" name="csrfmiddlewaretoken">
@@ -178,7 +178,7 @@ include('header.php'); ?>
 				</li>
 			</ul>
 		</form>
-		<form method="post" class="practitioner working" action="/doctors/update" id="dr-keith-chung">
+		<form method="post" class="practitioner available" action="/doctors/update" id="dr-keith-chung">
 			<input type="hidden" value="1" name="doctor_id">
 			<input type="hidden" value="Available" name="status">
 			<input type="hidden" value="olAC4uC0RgSWs7wRgnWgReZDHOHgRqKj" name="csrfmiddlewaretoken">
@@ -222,7 +222,7 @@ include('header.php'); ?>
 				</li>
 			</ul>
 		</form>
-		<form method="post" class="practitioner working" action="/doctors/update" id="dr-keith-chung">
+		<form method="post" class="practitioner available" action="/doctors/update" id="dr-keith-chung">
 			<input type="hidden" value="1" name="doctor_id">
 			<input type="hidden" value="Available" name="status">
 			<input type="hidden" value="olAC4uC0RgSWs7wRgnWgReZDHOHgRqKj" name="csrfmiddlewaretoken">
@@ -266,7 +266,7 @@ include('header.php'); ?>
 				</li>
 			</ul>
 		</form>
-		<form method="post" class="practitioner working" action="/doctors/update" id="dr-keith-chung">
+		<form method="post" class="practitioner available" action="/doctors/update" id="dr-keith-chung">
 			<input type="hidden" value="1" name="doctor_id">
 			<input type="hidden" value="Available" name="status">
 			<input type="hidden" value="olAC4uC0RgSWs7wRgnWgReZDHOHgRqKj" name="csrfmiddlewaretoken">
