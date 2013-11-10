@@ -3,15 +3,28 @@
 {% block title %} Waiting Room {% endblock %}
 
 {% block css %}{% endblock %}
+{% block basepage %}waiting-room{% endblock %}
+{% block baseclass %}waiting-room-view{% endblock %}
 
 {% block content %}
-	<ul>
-	{% for appt in appts %}
-		
-		<li>{{ appt.patient }} please proceed to {{ appt.room.number }}</li>
-		
-	{% endfor %}
+
+	<div class="content">
+
+	<ul class="genbox col-full inline patients">
+		{% for appt in appts %}
+		<li class="patient" id="patient-id-0000000">
+			<span class="name">{{ appt.patient }}</span>
+			<span class="practitioner-name">{{ appt.doctor }}</span>
+			<span class="room-number">{{ appt.room.number }}</span>
+			<span class="appt-start">{{ appt.app_time|date:"g:iA" }}</span>
+			<span class="arrived">{{ appt.patient.arrival_time|date:"g:iA" }}</span>
+			<span class="appt-length">{{ app.app_length }} min</span>
+			<!-- <span class="waiting-time">04 / 05</span> -->
+		</li>
+		{% endfor %}
 	</ul>
+
+</div><!-- END .content -->
 {% endblock %}
 
 {% block javascript %}{% endblock %}

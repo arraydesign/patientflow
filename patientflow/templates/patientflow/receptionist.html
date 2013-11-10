@@ -54,6 +54,7 @@
 	<div class="content">
 		
 		<section class="col-half" id="rooms">
+			
 			{% for appt in appts %}
 			<div class="room {% if appt.room.status == 'Waiting' %}blue{% endif %}
 			{% if appt.room.status == 'Available' %}green{% endif %}

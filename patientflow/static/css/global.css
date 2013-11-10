@@ -146,6 +146,21 @@ footer:before, footer:after {
     left: 1054px;
 }
 
+body.room header, body#waiting-room header, 
+body.room .wrapper:before,
+body.room .wrapper:after,
+body.room footer, body#waiting-room footer,
+body.room footer:before, body#waiting-room footer:before,
+body.room footer:after, body#waiting-room footer:after {
+    display: none;
+}
+
+body.room .content, body#waiting-room .content {
+    border-top: none;
+    margin: 0;
+    padding: 0 32px;
+}
+
 
 /* HEADER
 -------------------------------------------------------------- */
@@ -523,11 +538,11 @@ canvas.alignright {
 }
 
 .practitioner.working .practitioner-name:after {
-    content: "Working";
+    content: "Available";
 }
 
 .practitioner.unavailable .practitioner-name:after {
-    content: "On Break";
+    content: "Unavailable";
 }
 
 .practitioner.done .practitioner-name:after {
@@ -687,10 +702,4 @@ footer p {
     width: 768px;
 }
 } */
-
-ia screen and (max-width: 800px) {
-.wrapper, footer {
-    width: 768px;
-}
-}
 

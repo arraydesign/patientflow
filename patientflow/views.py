@@ -22,7 +22,7 @@ class ReceptionistView(TemplateView):
 		add_doctor_form = DoctorForm()
 		add_patient_form = PatientForm()
 		doctors = Doctor.objects.all()
-		appts = Appointment.objects.filter(~Q(status="Completed"), ~Q(room__isnull=True) )
+		appts = Appointment.objects.filter(~Q(status="Completed"))
 
 		mega_dict = {}
 
@@ -47,6 +47,7 @@ class RoomView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(RoomView, self).get_context_data(**kwargs)
+		body_color = None
 
 		if 'rid' in self.kwargs:		
 			rid = self.kwargs['rid']
@@ -78,7 +79,6 @@ class RoomView(TemplateView):
 					body_color = 'gray'
 
 			except Exception, e:
-				print e
 				appointment = None
 				appointments = None
 				button_title = None

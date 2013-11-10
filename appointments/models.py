@@ -41,12 +41,16 @@ class Appointment(models.Model):
 	def calculate_order(self):
 		appointments = Appointment.objects.filter(doctor=self.doctor).exclude(status="Completed", doctor_entry_time__isnull=False)
 		
-		max_order = Appointment.objects.filter(doctor=self.doctor).exclude(status="Completed", doctor_entry_time__isnull=False).order_by('-order')[0]
+		try:
+			max_order = Appointment.objects.get(doctor=self.doctor).exclude(status="Completed", doctor_entry_time__isnull=False).order_by('-order')
+		except Exception, e:
+			max_order = 0
+		
 
 		if not appointments:
 			return 1
 		else:
-			return int(max_order.order) + 1
+			return int(max_order) + 1
 
 		# We said fuck it
 		# else:
