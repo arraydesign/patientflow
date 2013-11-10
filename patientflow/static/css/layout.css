@@ -166,21 +166,6 @@ body.room footer {
     width: 768px;
 }
 
-body.room header,
-body.room .wrapper:before,
-body.room .wrapper:after,
-body.room footer,
-body.room footer:before,
-body.room footer:after {
-    display: none;
-}
-
-body.room .content {
-    border-top: none;
-    margin: 0;
-    padding: 0 32px;
-}
-
 body.room #current .patient {
     height: 424px;
     padding: 0;
@@ -293,6 +278,105 @@ body.room section#upcoming .practitioner .practitioner-name {
 
 /* WAITING ROOM
 -------------------------------------------------------------- */
+
+body#waiting-room .wrapper:before,
+body#waiting-room .wrapper:after {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #B3AD9F;
+    height: 240px;
+    left: 0;
+    margin-left: -50%;
+    width: 100%;
+}
+
+body#waiting-room .wrapper:after {
+    margin-left: 50%;
+}
+
+body#waiting-room .content {
+    position: relative;
+    z-index: 5;
+}
+
+body#waiting-room .content ul.patients {
+    margin: 24px auto;
+    overflow: hidden;
+    width: 768px;
+}
+
+body#waiting-room .content ul.patients li {
+    border-top: 1px solid #B3AD9F;
+    clear: left;
+    color: #93A1A1;
+    display: block;
+    float: none;
+    font-size: 36px;
+    line-height: 56px;
+    padding-bottom: 29px;
+    padding-top: 26px;
+}
+
+body#waiting-room .content ul.patients li:first-child {
+    border-top: medium none;
+    padding-bottom: 61px;
+    padding-top: 43px;
+}
+
+body#waiting-room .content ul.patients li:nth-last-child(5) {
+	opacity: 0.9;
+}
+
+body#waiting-room .content ul.patients li:nth-last-child(4) {
+	opacity: 0.8;
+}
+
+body#waiting-room .content ul.patients li:nth-last-child(3) {
+	opacity: 0.7;
+}
+
+body#waiting-room .content ul.patients li:nth-last-child(2) {
+	opacity: 0.6;
+}
+
+body#waiting-room .content ul.patients li:nth-last-child(1) {
+	opacity: 0.5;
+}
+
+body#waiting-room .patient .name {
+    display: block;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 56px;
+    width: auto;
+}
+
+body#waiting-room .content ul.patients li:first-child .name {}
+
+body#waiting-room .patient .room-number {
+    color: #002A35;
+    display: block;
+    font-weight: 400;
+    position: relative;
+    top: -4px;
+    width: auto;
+}
+
+body#waiting-room .content ul.patients li:first-child .room-number {}
+
+body#waiting-room .patient .room-number:before {
+	content: "Proceed to room ";
+    color: #93A1A1;
+}
+
+body#waiting-room .content ul.patients li:first-child .room-number:before {}
+
+body#waiting-room .patient .practitioner-name,
+body#waiting-room .patient .arrived,
+body#waiting-room .patient .appt-start,
+body#waiting-room .patient .appt-length,
+body#waiting-room .patient .waiting-time {
+	display: none;
+}
 
 
 /* MEDIUM
